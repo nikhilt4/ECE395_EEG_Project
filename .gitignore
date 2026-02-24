@@ -1,0 +1,6 @@
+*.kicad_prl
+fp-info-cache
+*.lck
+eeg_ble_pcb_v1-backups/
+*.bak
+sym-lib-table
