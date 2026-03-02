@@ -10132,10 +10132,6 @@
 		(uuid "8a8d3874-a68e-4092-b9d7-0f1182b0250f")
 	)
 	(no_connect
-		(at 130.81 82.55)
-		(uuid "a02a0302-a9f7-41bd-8901-794c0237fd21")
-	)
-	(no_connect
 		(at 486.41 252.73)
 		(uuid "a354bca8-56ae-4b3e-b76f-a87d1ff1afc6")
 	)
