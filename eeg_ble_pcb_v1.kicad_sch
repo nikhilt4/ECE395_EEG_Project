@@ -5829,189 +5829,6 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Libraryv2:LED"
-			(pin_numbers
-				(hide yes)
-			)
-			(pin_names
-				(offset 1.016)
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "D"
-				(at 0 2.54 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "LED"
-				(at 0 -2.54 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" "~"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "Light emitting diode"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Sim.Pins" "1=K 2=A"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_keywords" "LED diode"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_fp_filters" "LED* LED_SMD:* LED_THT:*"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "LED_0_1"
-				(polyline
-					(pts
-						(xy -3.048 -0.762) (xy -4.572 -2.286) (xy -3.81 -2.286) (xy -4.572 -2.286) (xy -4.572 -1.524)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.778 -0.762) (xy -3.302 -2.286) (xy -2.54 -2.286) (xy -3.302 -2.286) (xy -3.302 -1.524)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.27 0) (xy 1.27 0)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.27 -1.27) (xy -1.27 1.27)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 1.27 -1.27) (xy 1.27 1.27) (xy -1.27 0) (xy 1.27 -1.27)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "LED_1_1"
-				(pin passive line
-					(at -3.81 0 0)
-					(length 2.54)
-					(name "K"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 3.81 0 180)
-					(length 2.54)
-					(name "A"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "Libraryv2:R"
 			(pin_numbers
 				(hide yes)
@@ -6119,156 +5936,6 @@
 					(at 0 -3.81 90)
 					(length 1.27)
 					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "Libraryv2:SW_Push"
-			(pin_numbers
-				(hide yes)
-			)
-			(pin_names
-				(offset 1.016)
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "SW"
-				(at 1.27 2.54 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-				)
-			)
-			(property "Value" "SW_Push"
-				(at 0 -1.524 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at 0 5.08 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" "~"
-				(at 0 5.08 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "Push button switch, generic, two pins"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_keywords" "switch normally-open pushbutton push-button"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "SW_Push_0_1"
-				(circle
-					(center -2.032 0)
-					(radius 0.508)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 1.27) (xy 0 3.048)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(circle
-					(center 2.032 0)
-					(radius 0.508)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 2.54 1.27) (xy -2.54 1.27)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(pin passive line
-					(at -5.08 0 0)
-					(length 2.54)
-					(name "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 5.08 0 180)
-					(length 2.54)
-					(name "2"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -9416,12 +9083,6 @@
 		(uuid "1bbcbac5-6bf5-4ac7-8922-9c9fac206a8c")
 	)
 	(junction
-		(at 154.94 204.47)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "1bbdd257-d05a-4dd8-8216-5dc2689a3a5b")
-	)
-	(junction
 		(at 342.9 114.3)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -9620,12 +9281,6 @@
 		(uuid "6be8184e-805c-492f-b26e-318e0197ea30")
 	)
 	(junction
-		(at 93.98 201.93)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "77283257-1b14-4026-ab28-f5fe0c3d4e1a")
-	)
-	(junction
 		(at 72.39 31.75)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -9722,10 +9377,22 @@
 		(uuid "9d75beed-da75-4b06-9b87-ef962cb26161")
 	)
 	(junction
+		(at 93.98 201.93)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "9d9483e4-e2c3-4eaa-bc45-46358e13b422")
+	)
+	(junction
 		(at 317.5 110.49)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "9f5f2a51-3063-4a80-bb97-52b2c056e608")
+	)
+	(junction
+		(at 154.94 204.47)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "9faae077-d345-4939-98a2-515914b71778")
 	)
 	(junction
 		(at 337.82 205.74)
@@ -9768,12 +9435,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "aeb39e80-468d-48f9-bb8f-2a0ca74ec732")
-	)
-	(junction
-		(at 504.19 185.42)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "b0b398b6-ef45-4b27-a7a9-b1fa69243d52")
 	)
 	(junction
 		(at 218.44 203.2)
@@ -9870,6 +9531,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "c1ec9795-0363-41f0-be74-2753695a350a")
+	)
+	(junction
+		(at 504.19 185.42)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "c2931034-8a4d-4fec-bab4-16087a46b826")
 	)
 	(junction
 		(at 440.69 43.18)
@@ -10088,56 +9755,200 @@
 		(uuid "ffd54cf8-de69-407d-9a21-539e8940fb8c")
 	)
 	(no_connect
+		(at 176.53 123.19)
+		(uuid "0404122a-be1e-4f53-83c2-f317fd7a22bd")
+	)
+	(no_connect
 		(at 467.36 74.93)
 		(uuid "07770775-202d-4a81-92a5-dde040bd705b")
+	)
+	(no_connect
+		(at 176.53 158.75)
+		(uuid "09711eaf-e0b1-4082-b422-3e0901b31b7e")
 	)
 	(no_connect
 		(at 130.81 97.79)
 		(uuid "0cbc7587-107e-4722-9a0a-305e6a28df03")
 	)
 	(no_connect
+		(at 176.53 133.35)
+		(uuid "1247ba49-ad14-4ad6-b83e-66111fe70515")
+	)
+	(no_connect
 		(at 107.95 207.01)
 		(uuid "17927131-9010-4e19-bd64-bc9f8001e9ae")
+	)
+	(no_connect
+		(at 130.81 148.59)
+		(uuid "31deda52-96db-4dad-89c5-89747a59eca6")
+	)
+	(no_connect
+		(at 176.53 107.95)
+		(uuid "36ba180b-7afa-4375-b09e-1325159071d8")
+	)
+	(no_connect
+		(at 130.81 135.89)
+		(uuid "38ccee42-d209-457c-a833-88405016de33")
+	)
+	(no_connect
+		(at 130.81 151.13)
+		(uuid "3d311dce-9cb9-4b34-8d2b-2ad193b9d8bd")
 	)
 	(no_connect
 		(at 467.36 82.55)
 		(uuid "47fe7732-5855-44d9-86d5-5b5630482b01")
 	)
 	(no_connect
+		(at 130.81 128.27)
+		(uuid "483c89d9-a333-44bf-90be-51f9a3305bfa")
+	)
+	(no_connect
 		(at 486.41 267.97)
 		(uuid "49150f41-65a5-498e-aac8-4a402a068601")
+	)
+	(no_connect
+		(at 130.81 138.43)
+		(uuid "4ae5182e-64be-41c4-bf31-9090883331e6")
 	)
 	(no_connect
 		(at 445.77 119.38)
 		(uuid "512f240e-a382-4440-a569-8cd287e8fdf5")
 	)
 	(no_connect
+		(at 176.53 115.57)
+		(uuid "53c873fc-6407-4c87-852f-9b323685436f")
+	)
+	(no_connect
 		(at 486.41 270.51)
 		(uuid "54858939-6639-4692-bebc-f92815b4cada")
+	)
+	(no_connect
+		(at 130.81 113.03)
+		(uuid "57152fa8-fa25-4832-8461-5c7404918d7a")
 	)
 	(no_connect
 		(at 467.36 95.25)
 		(uuid "5b08f9c9-db1c-4773-8453-caf85e9cc7b4")
 	)
 	(no_connect
+		(at 176.53 125.73)
+		(uuid "5c4d1adc-b7fe-48b7-9384-d7fdb54dd5c8")
+	)
+	(no_connect
+		(at 176.53 156.21)
+		(uuid "5edd1c00-bd7c-4e82-b790-02ff6d7d3563")
+	)
+	(no_connect
 		(at 415.29 119.38)
 		(uuid "60e5a45e-f6bf-497b-ba90-661a689b03d4")
+	)
+	(no_connect
+		(at 130.81 146.05)
+		(uuid "63547089-47c5-47be-a411-5e1b85feefe3")
+	)
+	(no_connect
+		(at 176.53 82.55)
+		(uuid "72e116cd-bfba-4c93-9880-e0cfa4002112")
 	)
 	(no_connect
 		(at 415.29 53.34)
 		(uuid "761cd80b-2dba-44e5-baa6-8718b45cf9b2")
 	)
 	(no_connect
+		(at 130.81 130.81)
+		(uuid "7bda8f05-d2a0-453e-a5fd-cb368b2c66e7")
+	)
+	(no_connect
+		(at 130.81 118.11)
+		(uuid "8218654e-22e9-40e2-a3c6-473383406aee")
+	)
+	(no_connect
+		(at 359.41 200.66)
+		(uuid "8276add8-7f78-48b6-8534-42ec825afc6c")
+	)
+	(no_connect
+		(at 130.81 140.97)
+		(uuid "852230a0-d50d-4e40-9565-89bf5f35b816")
+	)
+	(no_connect
 		(at 440.69 119.38)
 		(uuid "8a8d3874-a68e-4092-b9d7-0f1182b0250f")
+	)
+	(no_connect
+		(at 130.81 120.65)
+		(uuid "8e14e313-e37c-4c20-a19b-d503ceda4b7f")
+	)
+	(no_connect
+		(at 130.81 156.21)
+		(uuid "92fce541-ea54-4904-b094-96d3fccf2172")
+	)
+	(no_connect
+		(at 466.09 203.2)
+		(uuid "930ac1eb-b74b-4b68-9741-6eaa3ff431b5")
+	)
+	(no_connect
+		(at 176.53 85.09)
+		(uuid "94ce19de-8d2e-48ed-9bd5-7ed719a1eebd")
+	)
+	(no_connect
+		(at 176.53 151.13)
+		(uuid "9a68ce57-7915-4fa4-80b5-e4128a3c2d5d")
+	)
+	(no_connect
+		(at 176.53 135.89)
+		(uuid "9bf568cf-fdf4-4cbf-aa49-0befca0dad1b")
+	)
+	(no_connect
+		(at 130.81 133.35)
+		(uuid "a050ceb5-1084-448c-974d-f092bc88a96d")
 	)
 	(no_connect
 		(at 486.41 252.73)
 		(uuid "a354bca8-56ae-4b3e-b76f-a87d1ff1afc6")
 	)
 	(no_connect
+		(at 176.53 153.67)
+		(uuid "a87f4117-67d6-4af7-b4d4-5a778187a317")
+	)
+	(no_connect
+		(at 176.53 105.41)
+		(uuid "b68581e2-ff36-4dc5-9155-0bbda6e57320")
+	)
+	(no_connect
 		(at 486.41 257.81)
 		(uuid "b8b63909-2048-4321-8728-978e5b187384")
+	)
+	(no_connect
+		(at 176.53 120.65)
+		(uuid "ba9b21d3-8dbe-4095-bcb4-1011e13837cf")
+	)
+	(no_connect
+		(at 176.53 148.59)
+		(uuid "bf787503-ceb9-43e5-847b-6ed5b4864658")
+	)
+	(no_connect
+		(at 130.81 153.67)
+		(uuid "c8eb7a17-531f-433b-8389-e88c5fa1e432")
+	)
+	(no_connect
+		(at 176.53 146.05)
+		(uuid "d0ada709-8f13-4dbd-8e75-c2ead640e9d1")
+	)
+	(no_connect
+		(at 130.81 125.73)
+		(uuid "d28e4089-7a9c-4133-9bc8-815dc4d08546")
+	)
+	(no_connect
+		(at 176.53 130.81)
+		(uuid "d3feb60b-3f33-4afb-9865-25cb9f1a6dfe")
+	)
+	(no_connect
+		(at 176.53 138.43)
+		(uuid "e1109cc5-c7b5-4b1a-9d40-f9be96112ac6")
+	)
+	(no_connect
+		(at 130.81 143.51)
+		(uuid "e3d8c089-955f-4633-ab9e-fb34d2d6d4f9")
 	)
 	(no_connect
 		(at 425.45 53.34)
@@ -10792,6 +10603,16 @@
 			(type default)
 		)
 		(uuid "21464d19-45bc-4b71-a2aa-e5518b85beb3")
+	)
+	(wire
+		(pts
+			(xy 154.94 204.47) (xy 161.29 204.47)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2157f132-fde8-40bc-af34-3e2aa5cd9f61")
 	)
 	(wire
 		(pts
@@ -12035,6 +11856,16 @@
 	)
 	(wire
 		(pts
+			(xy 504.19 185.42) (xy 506.73 185.42)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6b7e1e1c-56af-4144-9677-975152c813b5")
+	)
+	(wire
+		(pts
 			(xy 151.13 168.91) (xy 153.67 168.91)
 		)
 		(stroke
@@ -12072,16 +11903,6 @@
 			(type default)
 		)
 		(uuid "6db8731e-7a83-469e-94cb-431313185c34")
-	)
-	(wire
-		(pts
-			(xy 67.31 201.93) (xy 69.85 201.93)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6ef4172b-5e05-4bcc-bbea-2e31211ff6c4")
 	)
 	(wire
 		(pts
@@ -12132,6 +11953,16 @@
 			(type default)
 		)
 		(uuid "7028f060-fb00-44b9-8203-1527d779024a")
+	)
+	(wire
+		(pts
+			(xy 52.07 201.93) (xy 93.98 201.93)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "718f9c17-f24b-4efb-ab77-30ad1ed236f8")
 	)
 	(wire
 		(pts
@@ -12395,7 +12226,7 @@
 	)
 	(wire
 		(pts
-			(xy 508 179.07) (xy 504.19 179.07)
+			(xy 510.54 170.18) (xy 504.19 170.18)
 		)
 		(stroke
 			(width 0)
@@ -12585,16 +12416,6 @@
 	)
 	(wire
 		(pts
-			(xy 504.19 185.42) (xy 506.73 185.42)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "8cd40078-a28d-495d-a5e7-9368625b1d5d")
-	)
-	(wire
-		(pts
 			(xy 325.12 60.96) (xy 330.2 60.96)
 		)
 		(stroke
@@ -12635,16 +12456,6 @@
 	)
 	(wire
 		(pts
-			(xy 91.44 201.93) (xy 93.98 201.93)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "90225475-a847-4434-b6e3-fb8726437b1c")
-	)
-	(wire
-		(pts
 			(xy 337.82 106.68) (xy 342.9 106.68)
 		)
 		(stroke
@@ -12672,16 +12483,6 @@
 			(type default)
 		)
 		(uuid "920b7d66-c454-4dd5-9c40-136356c15392")
-	)
-	(wire
-		(pts
-			(xy 154.94 204.47) (xy 161.29 204.47)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "92754ac0-f999-411e-ae5c-e746526cb140")
 	)
 	(wire
 		(pts
@@ -12935,16 +12736,6 @@
 	)
 	(wire
 		(pts
-			(xy 504.19 179.07) (xy 504.19 185.42)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a0b9da8f-1ab7-4bf2-bc5f-350979a8b72c")
-	)
-	(wire
-		(pts
 			(xy 220.98 217.17) (xy 220.98 218.44)
 		)
 		(stroke
@@ -13042,16 +12833,6 @@
 			(type default)
 		)
 		(uuid "a4b77bc1-a560-4e6c-b6bd-20264b48065c")
-	)
-	(wire
-		(pts
-			(xy 77.47 201.93) (xy 83.82 201.93)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a52f26f8-5933-4497-aeea-3d2cec132b19")
 	)
 	(wire
 		(pts
@@ -13752,6 +13533,16 @@
 			(type default)
 		)
 		(uuid "c0a92ca1-0c46-48df-ad0e-233002a61d0a")
+	)
+	(wire
+		(pts
+			(xy 504.19 170.18) (xy 504.19 185.42)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c154a943-4c7f-4c08-a87b-3f8b66ab67a1")
 	)
 	(wire
 		(pts
@@ -16159,7 +15950,7 @@
 	)
 	(global_label "OUT+"
 		(shape output)
-		(at 508 179.07 0)
+		(at 510.54 170.18 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -16169,7 +15960,7 @@
 		)
 		(uuid "cca72462-11a1-4010-b54a-0d66136cb7cd")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 516.1862 179.07 0)
+			(at 518.7262 170.18 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16443,28 +16234,6 @@
 			)
 		)
 	)
-	(global_label "OUT+"
-		(shape input)
-		(at 57.15 201.93 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "f77bc270-728b-435c-b3e7-082f95c92618")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 48.9638 201.93 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
 	(global_label "Vout_3.3"
 		(shape input)
 		(at 124.46 97.79 180)
@@ -16478,6 +16247,28 @@
 		(uuid "fa0f3f52-04b6-41ec-b08d-9129af590463")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 113.3711 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "OUT+"
+		(shape input)
+		(at 52.07 201.93 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "fbff826e-65d9-496c-88c5-62497886ec26")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 43.8838 201.93 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16571,76 +16362,6 @@
 			(project "eeg_ble_pcb_v1"
 				(path "/67885a9f-1b6d-4b79-8bed-cb7f7224bbf7"
 					(reference "JP17")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R")
-		(at 429.26 194.31 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "069c67a8-2360-4440-aa4a-8c869fd1bc31")
-		(property "Reference" "R2"
-			(at 431.8 193.0399 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "1k"
-			(at 431.8 195.5799 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 427.482 194.31 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 429.26 194.31 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Resistor"
-			(at 429.26 194.31 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "f7cec2e3-dadd-4f93-bdda-24234402d3d2")
-		)
-		(pin "2"
-			(uuid "c164dd47-2df2-4971-b39a-5a3e0659b2bc")
-		)
-		(instances
-			(project "eeg_ble_pcb_v1"
-				(path "/67885a9f-1b6d-4b79-8bed-cb7f7224bbf7"
-					(reference "R2")
 					(unit 1)
 				)
 			)
@@ -16775,75 +16496,6 @@
 			(project "eeg_ble_pcb_v1"
 				(path "/67885a9f-1b6d-4b79-8bed-cb7f7224bbf7"
 					(reference "JP16")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R")
-		(at 478.79 196.85 180)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "094a251e-5643-43c0-a284-9ed6f48085ff")
-		(property "Reference" "R4"
-			(at 480.314 195.326 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "1.2k"
-			(at 480.314 197.104 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" ""
-			(at 480.568 196.85 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 478.79 196.85 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Resistor"
-			(at 478.79 196.85 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "26b08dc1-2000-487a-9561-6a40c8144a58")
-		)
-		(pin "1"
-			(uuid "0f746a44-003c-49a3-9b11-cf6a17e3b3fa")
-		)
-		(instances
-			(project "eeg_ble_pcb_v1"
-				(path "/67885a9f-1b6d-4b79-8bed-cb7f7224bbf7"
-					(reference "R4")
 					(unit 1)
 				)
 			)
@@ -17118,6 +16770,75 @@
 			(project "eeg_ble_pcb_v1"
 				(path "/67885a9f-1b6d-4b79-8bed-cb7f7224bbf7"
 					(reference "C25")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Libraryv2:C")
+		(at 107.95 215.9 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "0f6497a4-bf26-442e-ab73-c3c6474902e3")
+		(property "Reference" "C40"
+			(at 108.966 218.186 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "10nF"
+			(at 104.14 213.868 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder"
+			(at 108.9152 219.71 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 107.95 215.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 107.95 215.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "c234000d-1fd7-4df9-be35-14cce1da2827")
+		)
+		(pin "2"
+			(uuid "d871b0c1-1716-40bc-adf8-3727f33b7b84")
+		)
+		(instances
+			(project "eeg_ble_pcb_v1"
+				(path "/67885a9f-1b6d-4b79-8bed-cb7f7224bbf7"
+					(reference "C40")
 					(unit 1)
 				)
 			)
@@ -17407,7 +17128,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "5.1k"
+		(property "Value" "5.1kOhm"
 			(at 498.856 251.206 0)
 			(effects
 				(font
@@ -17662,6 +17383,76 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:R")
+		(at 429.26 194.31 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "19e13168-e804-49ea-b33f-d78df6e8effa")
+		(property "Reference" "R34"
+			(at 431.8 193.0399 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "1kOhm"
+			(at 431.8 195.5799 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 427.482 194.31 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 429.26 194.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 429.26 194.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "2d30a92a-ce64-4643-8f59-962bc922c86f")
+		)
+		(pin "2"
+			(uuid "a308c284-b585-400d-8898-3e5610878c11")
+		)
+		(instances
+			(project "eeg_ble_pcb_v1"
+				(path "/67885a9f-1b6d-4b79-8bed-cb7f7224bbf7"
+					(reference "R34")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Libraryv2:R")
 		(at 334.01 110.49 90)
 		(unit 1)
@@ -17747,7 +17538,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "10u"
+		(property "Value" "10uF"
 			(at 421.64 186.6899 0)
 			(effects
 				(font
@@ -17952,7 +17743,7 @@
 				)
 			)
 		)
-		(property "Value" "1u"
+		(property "Value" "1uH"
 			(at 118.11 194.056 90)
 			(effects
 				(font
@@ -18495,7 +18286,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "22u"
+		(property "Value" "22uF"
 			(at 152.146 218.948 0)
 			(effects
 				(font
@@ -18541,76 +18332,6 @@
 			(project "eeg_ble_pcb_v1"
 				(path "/67885a9f-1b6d-4b79-8bed-cb7f7224bbf7"
 					(reference "C33")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Libraryv2:R")
-		(at 128.27 215.9 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "29e332a1-846a-43a7-89a3-bbbe4480508a")
-		(property "Reference" "R31"
-			(at 130.81 214.6299 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "1M"
-			(at 130.81 217.1699 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
-			(at 126.492 215.9 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 128.27 215.9 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Resistor"
-			(at 128.27 215.9 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "6c233c6b-bb14-4a18-99d3-87e34d7107b7")
-		)
-		(pin "2"
-			(uuid "ad21e42e-adef-47ee-8815-668da50c85b2")
-		)
-		(instances
-			(project "eeg_ble_pcb_v1"
-				(path "/67885a9f-1b6d-4b79-8bed-cb7f7224bbf7"
-					(reference "R31")
 					(unit 1)
 				)
 			)
@@ -19703,7 +19424,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "22u"
+		(property "Value" "22uF"
 			(at 152.146 212.598 0)
 			(effects
 				(font
@@ -19973,7 +19694,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "10u"
+		(property "Value" "10uF"
 			(at 496.57 198.1199 0)
 			(effects
 				(font
@@ -21131,6 +20852,75 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:R")
+		(at 478.79 196.85 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "625acf22-1d52-4924-b217-15a22a4eefa2")
+		(property "Reference" "R35"
+			(at 480.314 195.326 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "1.2kOhm"
+			(at 480.314 197.104 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 480.568 196.85 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 478.79 196.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 478.79 196.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "4432e70b-8281-4d48-9aaa-5865ae4fe55e")
+		)
+		(pin "1"
+			(uuid "ef9c61fc-574b-40b6-9b66-9c1fdb28275c")
+		)
+		(instances
+			(project "eeg_ble_pcb_v1"
+				(path "/67885a9f-1b6d-4b79-8bed-cb7f7224bbf7"
+					(reference "R35")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_name "C_1")
 		(lib_id "Libraryv2:C_1")
 		(at 342.9 115.57 0)
@@ -21281,7 +21071,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "6d0c8e76-93b3-45b4-872b-43ad304e1d1b")
-		(property "Reference" "#PWR06"
+		(property "Reference" "#PWR0101"
 			(at 417.83 195.58 0)
 			(effects
 				(font
@@ -21331,76 +21121,7 @@
 		(instances
 			(project "eeg_ble_pcb_v1"
 				(path "/67885a9f-1b6d-4b79-8bed-cb7f7224bbf7"
-					(reference "#PWR06")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Libraryv2:C")
-		(at 154.94 208.28 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "6dc711e7-a4a3-450c-bbd1-5f610f836ee1")
-		(property "Reference" "C33"
-			(at 155.956 210.566 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "22u"
-			(at 152.146 206.248 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder"
-			(at 155.9052 212.09 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 154.94 208.28 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Unpolarized capacitor"
-			(at 154.94 208.28 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "09623e73-c522-414c-a396-8ae0c87e8d7f")
-		)
-		(pin "2"
-			(uuid "559ac579-2c6e-47f5-aaf9-7beda3013413")
-		)
-		(instances
-			(project "eeg_ble_pcb_v1"
-				(path "/67885a9f-1b6d-4b79-8bed-cb7f7224bbf7"
-					(reference "C33")
+					(reference "#PWR0101")
 					(unit 1)
 				)
 			)
@@ -22193,7 +21914,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "402k"
+		(property "Value" "402kOhm"
 			(at 143.51 209.5499 0)
 			(effects
 				(font
@@ -22736,83 +22457,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Libraryv2:LED")
-		(at 73.66 201.93 180)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "8ef37dd5-cbee-42d1-bd12-c80aaaf8e13b")
-		(property "Reference" "D5(5mm)1"
-			(at 75.2475 194.31 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "LED"
-			(at 75.2475 196.85 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder"
-			(at 73.66 201.93 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 73.66 201.93 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Light emitting diode"
-			(at 73.66 201.93 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Pins" "1=K 2=A"
-			(at 73.66 201.93 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "8fd44f8f-785b-40d7-aef7-60c9baeb4009")
-		)
-		(pin "1"
-			(uuid "7bca54a7-bf9c-4e42-83fe-592b082b0dc3")
-		)
-		(instances
-			(project "eeg_ble_pcb_v1"
-				(path "/67885a9f-1b6d-4b79-8bed-cb7f7224bbf7"
-					(reference "D5(5mm)1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Libraryv2:SolderJumper_2_Open")
 		(at 321.31 114.3 0)
 		(unit 1)
@@ -23080,6 +22724,86 @@
 		)
 	)
 	(symbol
+		(lib_id "Battery_Management:DW01A")
+		(at 359.41 191.77 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "919fa4cd-ad1e-4109-ae70-1604c9c3be13")
+		(property "Reference" "U1"
+			(at 359.41 181.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "DW01A"
+			(at 359.41 184.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-23-6"
+			(at 359.41 191.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://hmsemi.com/downfile/DW01A.PDF"
+			(at 359.41 191.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Overcharge, overcurrent and overdischarge protection IC for single cell lithium-ion/polymer battery"
+			(at 359.664 190.246 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "5"
+			(uuid "b52f0b7f-f592-4ec3-adc4-f46ab7d4dfea")
+		)
+		(pin "6"
+			(uuid "8cffbbf8-4b31-4ee4-8fb2-5c7ba1132a1b")
+		)
+		(pin "1"
+			(uuid "e099d1ff-bf58-4d1f-bf1e-6c078ee7bd85")
+		)
+		(pin "3"
+			(uuid "100af582-bf63-446d-8ff2-c31b444e9904")
+		)
+		(pin "2"
+			(uuid "375489b0-9a99-40fe-886f-308bc8646b5c")
+		)
+		(pin "4"
+			(uuid "b0c3b66a-4665-4baa-8fdb-689b8476f25c")
+		)
+		(instances
+			(project "eeg_ble_pcb_v1"
+				(path "/67885a9f-1b6d-4b79-8bed-cb7f7224bbf7"
+					(reference "U1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Libraryv2:SolderJumper_2_Open")
 		(at 321.31 118.11 0)
 		(unit 1)
@@ -23164,7 +22888,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "22u"
+		(property "Value" "22uF"
 			(at 97.79 207.0099 0)
 			(effects
 				(font
@@ -23756,74 +23480,6 @@
 			(project ""
 				(path "/67885a9f-1b6d-4b79-8bed-cb7f7224bbf7"
 					(reference "U")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Libraryv2:SW_Push")
-		(at 62.23 201.93 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "9dc405ec-584e-452e-bb78-47282e70a14e")
-		(property "Reference" "SW2"
-			(at 62.23 194.31 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "SW_Push"
-			(at 62.23 196.85 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Button_Switch_THT:SW_DIP_SPSTx01_Slide_6.7x4.1mm_W7.62mm_P2.54mm_LowProfile"
-			(at 62.23 196.85 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 62.23 196.85 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Push button switch, generic, two pins"
-			(at 62.23 201.93 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "e6dd053b-cb16-466a-b8e4-053f27c7f7c1")
-		)
-		(pin "2"
-			(uuid "1790e375-85a8-492c-99a9-49dc83c66af1")
-		)
-		(instances
-			(project "eeg_ble_pcb_v1"
-				(path "/67885a9f-1b6d-4b79-8bed-cb7f7224bbf7"
-					(reference "SW2")
 					(unit 1)
 				)
 			)
@@ -25010,6 +24666,75 @@
 		)
 	)
 	(symbol
+		(lib_id "Libraryv2:C")
+		(at 154.94 208.28 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "c6d944b8-1232-48ea-a33a-738934bcc428")
+		(property "Reference" "C41"
+			(at 155.956 210.566 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "22uF"
+			(at 152.146 206.248 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder"
+			(at 155.9052 212.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 154.94 208.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 154.94 208.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "c7712009-5a3b-40fa-98f2-d17bd7eb1df1")
+		)
+		(pin "2"
+			(uuid "b83a0ff1-1b95-4eb6-96ff-f80e95dc5103")
+		)
+		(instances
+			(project "eeg_ble_pcb_v1"
+				(path "/67885a9f-1b6d-4b79-8bed-cb7f7224bbf7"
+					(reference "C41")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:LED")
 		(at 429.26 182.88 90)
 		(unit 1)
@@ -25371,7 +25096,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "100k"
+		(property "Value" "100kOhm"
 			(at 143.51 217.1699 0)
 			(effects
 				(font
@@ -25717,7 +25442,7 @@
 				)
 			)
 		)
-		(property "Value" "1n"
+		(property "Value" "1nF"
 			(at 509.524 275.844 90)
 			(effects
 				(font
@@ -26064,7 +25789,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "1M"
+		(property "Value" "1MOhm"
 			(at 509.524 266.446 0)
 			(effects
 				(font
@@ -26397,74 +26122,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Libraryv2:R")
-		(at 87.63 201.93 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "d777fc21-3013-4733-846e-9c3c8e570aca")
-		(property "Reference" "R30"
-			(at 87.63 195.58 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "100"
-			(at 87.63 198.12 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
-			(at 87.63 203.708 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 87.63 201.93 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Resistor"
-			(at 87.63 201.93 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "3256bdfd-45ab-49b9-bf02-116ea1dd42ee")
-		)
-		(pin "2"
-			(uuid "b88b2c9f-c342-4c9d-9514-54895cfb55a4")
-		)
-		(instances
-			(project "eeg_ble_pcb_v1"
-				(path "/67885a9f-1b6d-4b79-8bed-cb7f7224bbf7"
-					(reference "R30")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Libraryv2:C")
 		(at 341.63 45.72 180)
 		(unit 1)
@@ -26529,75 +26186,6 @@
 			(project "eeg_ble_pcb_v1"
 				(path "/67885a9f-1b6d-4b79-8bed-cb7f7224bbf7"
 					(reference "C17")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Libraryv2:C")
-		(at 107.95 215.9 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "d8c35665-7359-4473-b71d-2551f2d473d3")
-		(property "Reference" "C32"
-			(at 108.966 218.186 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "10n"
-			(at 104.14 213.868 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder"
-			(at 108.9152 219.71 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 107.95 215.9 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Unpolarized capacitor"
-			(at 107.95 215.9 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "ed703382-9fe6-418c-ba14-60656a50825e")
-		)
-		(pin "2"
-			(uuid "e2e21975-a8bd-4760-8520-a354c3df7f6f")
-		)
-		(instances
-			(project "eeg_ble_pcb_v1"
-				(path "/67885a9f-1b6d-4b79-8bed-cb7f7224bbf7"
-					(reference "C32")
 					(unit 1)
 				)
 			)
@@ -27344,6 +26932,76 @@
 		)
 	)
 	(symbol
+		(lib_id "Libraryv2:R")
+		(at 128.27 215.9 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "ed5c5690-cdf7-4ef3-85f1-e9c65a2820ac")
+		(property "Reference" "R33"
+			(at 130.81 214.6299 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "1MOhm"
+			(at 130.81 217.1699 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
+			(at 126.492 215.9 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 128.27 215.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 128.27 215.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "717ae224-8eb7-4c56-8a20-55d99fdd022f")
+		)
+		(pin "2"
+			(uuid "d71ae89a-f2e3-4d6c-9d09-40d1c03bae8e")
+		)
+		(instances
+			(project "eeg_ble_pcb_v1"
+				(path "/67885a9f-1b6d-4b79-8bed-cb7f7224bbf7"
+					(reference "R33")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Libraryv2:C")
 		(at 209.55 209.55 0)
 		(unit 1)
@@ -27431,7 +27089,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "5.1k"
+		(property "Value" "5.1kOhm"
 			(at 491.236 251.206 0)
 			(effects
 				(font
@@ -27638,7 +27296,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "1k"
+		(property "Value" "1kOhm"
 			(at 441.96 195.5799 0)
 			(effects
 				(font
@@ -28070,86 +27728,6 @@
 			(project "eeg_ble_pcb_v1"
 				(path "/67885a9f-1b6d-4b79-8bed-cb7f7224bbf7"
 					(reference "R32")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Battery_Management:DW01A")
-		(at 359.41 191.77 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "fdeec45d-713b-4a14-96c0-631865e0d293")
-		(property "Reference" "U2"
-			(at 359.41 181.61 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "DW01A"
-			(at 359.41 184.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Package_TO_SOT_SMD:SOT-23-6"
-			(at 359.41 191.77 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://hmsemi.com/downfile/DW01A.PDF"
-			(at 359.41 191.77 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Overcharge, overcurrent and overdischarge protection IC for single cell lithium-ion/polymer battery"
-			(at 359.664 190.246 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "5"
-			(uuid "45959255-9628-4ab3-aea5-747cc291284e")
-		)
-		(pin "6"
-			(uuid "4d207c0b-02b9-4893-b4f6-dcfd97ae53e5")
-		)
-		(pin "1"
-			(uuid "26a0a04a-fb3c-49f4-aa78-1ade0d45ea5b")
-		)
-		(pin "3"
-			(uuid "bc951589-1643-41a6-ae6f-7ae49127e0be")
-		)
-		(pin "2"
-			(uuid "7bed6f31-9716-4540-8503-9cc330d8946f")
-		)
-		(pin "4"
-			(uuid "4231860d-4aff-4234-90fa-bf7e8f91efa7")
-		)
-		(instances
-			(project "eeg_ble_pcb_v1"
-				(path "/67885a9f-1b6d-4b79-8bed-cb7f7224bbf7"
-					(reference "U2")
 					(unit 1)
 				)
 			)
