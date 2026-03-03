@@ -9059,6 +9059,12 @@
 		(uuid "1391d35e-e203-45f0-bb56-48a9654862c7")
 	)
 	(junction
+		(at 342.9 91.44)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "14c39ad8-db61-46bd-9620-439958017b59")
+	)
+	(junction
 		(at 77.47 31.75)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -9171,6 +9177,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "3f62c291-0076-4972-b39d-d271b279caba")
+	)
+	(junction
+		(at 468.63 173.99)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "4084a9ab-3d62-4910-9000-9f0a3aa44a1c")
 	)
 	(junction
 		(at 317.5 60.96)
@@ -9479,12 +9491,6 @@
 		(uuid "b55b47df-e201-43fa-b9a6-93136c836fee")
 	)
 	(junction
-		(at 468.63 172.72)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "ba64d3a2-1f01-4a91-8960-8285e68b0414")
-	)
-	(junction
 		(at 148.59 67.31)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -9609,12 +9615,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "d5fe4f64-c327-4548-a171-1a7304258c66")
-	)
-	(junction
-		(at 342.9 91.44)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "d67d7fe1-ad2b-4ff7-9ab1-d6adb02d3e0e")
 	)
 	(junction
 		(at 342.9 64.77)
@@ -10516,16 +10516,6 @@
 	)
 	(wire
 		(pts
-			(xy 342.9 91.44) (xy 388.62 91.44)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "1e13ff52-58f1-4d19-8423-681cf00d3d01")
-	)
-	(wire
-		(pts
 			(xy 443.23 132.08) (xy 448.31 132.08)
 		)
 		(stroke
@@ -10653,6 +10643,16 @@
 			(type default)
 		)
 		(uuid "238bd9db-2085-4c24-8e5c-520b765304c7")
+	)
+	(wire
+		(pts
+			(xy 342.9 91.44) (xy 388.62 91.44)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "24187bae-2173-4981-b5f4-679db7dab6b8")
 	)
 	(wire
 		(pts
@@ -11023,6 +11023,16 @@
 			(type default)
 		)
 		(uuid "3ad9db11-940a-4314-b602-94941bbc4e07")
+	)
+	(wire
+		(pts
+			(xy 337.82 172.72) (xy 337.82 177.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3bcbc5f2-b7d8-461d-ab98-f47fc65c0911")
 	)
 	(wire
 		(pts
@@ -11606,16 +11616,6 @@
 	)
 	(wire
 		(pts
-			(xy 254 198.12) (xy 259.08 198.12)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5a8b6d78-c975-4f52-8f67-d586be5603c0")
-	)
-	(wire
-		(pts
 			(xy 317.5 76.2) (xy 317.5 80.01)
 		)
 		(stroke
@@ -11956,6 +11956,16 @@
 	)
 	(wire
 		(pts
+			(xy 468.63 173.99) (xy 468.63 177.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "70d111e0-3e31-49d9-b7ea-8e0dcd15eeb3")
+	)
+	(wire
+		(pts
 			(xy 52.07 201.93) (xy 93.98 201.93)
 		)
 		(stroke
@@ -12166,23 +12176,13 @@
 	)
 	(wire
 		(pts
-			(xy 468.63 171.45) (xy 468.63 172.72)
+			(xy 468.63 171.45) (xy 468.63 173.99)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "7d43da18-59e7-453c-8ae1-c97ad33bbfce")
-	)
-	(wire
-		(pts
-			(xy 337.82 172.72) (xy 337.82 177.8)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7d7c7fc1-9ce5-44cb-bdb0-2e8e49aa17b4")
 	)
 	(wire
 		(pts
@@ -13093,16 +13093,6 @@
 			(type default)
 		)
 		(uuid "b0309a69-ddab-4320-97e4-1bd41ec8fa75")
-	)
-	(wire
-		(pts
-			(xy 468.63 172.72) (xy 468.63 177.8)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b0428675-565d-4c6c-b0c4-3cdeec690974")
 	)
 	(wire
 		(pts
@@ -14683,6 +14673,16 @@
 			(type default)
 		)
 		(uuid "faace331-b3da-4ee9-83b7-431edc4d4c7b")
+	)
+	(wire
+		(pts
+			(xy 254 198.12) (xy 259.08 198.12)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fb19cbad-4d67-40bc-ab6f-1ded51f0bad9")
 	)
 	(wire
 		(pts
@@ -18198,77 +18198,6 @@
 		)
 	)
 	(symbol
-		(lib_name "C_1")
-		(lib_id "Libraryv2:C_1")
-		(at 342.9 92.71 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "292971ba-0bdc-417d-91d6-45ccbd8a31ae")
-		(property "Reference" "C18"
-			(at 346.71 91.4399 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "1u"
-			(at 346.71 93.9799 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder"
-			(at 343.8652 96.52 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 342.9 92.71 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Unpolarized capacitor"
-			(at 342.9 92.71 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "e702dcb6-5b34-4d1c-bcbf-19618654cfc5")
-		)
-		(pin "2"
-			(uuid "a10be577-e405-4bb8-b3fa-89a238eadce5")
-		)
-		(instances
-			(project "eeg_ble_pcb_v1"
-				(path "/67885a9f-1b6d-4b79-8bed-cb7f7224bbf7"
-					(reference "C18")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Libraryv2:C")
 		(at 154.94 220.98 0)
 		(unit 1)
@@ -18700,6 +18629,77 @@
 			(project "eeg_ble_pcb_v1"
 				(path "/67885a9f-1b6d-4b79-8bed-cb7f7224bbf7"
 					(reference "C3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_name "C_1")
+		(lib_id "Libraryv2:C_1")
+		(at 342.9 92.71 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "39368567-b0b6-40ae-86a1-7b14041d074e")
+		(property "Reference" "C45"
+			(at 346.71 91.4399 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "1u"
+			(at 346.71 93.9799 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder"
+			(at 343.8652 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 342.9 92.71 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 342.9 92.71 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "d7510685-09cc-400f-bc1a-5c845f0f3858")
+		)
+		(pin "2"
+			(uuid "93955499-3f5d-44d3-9df6-f35f49316d0a")
+		)
+		(instances
+			(project "eeg_ble_pcb_v1"
+				(path "/67885a9f-1b6d-4b79-8bed-cb7f7224bbf7"
+					(reference "C45")
 					(unit 1)
 				)
 			)
@@ -20278,76 +20278,6 @@
 			(project "eeg_ble_pcb_v1"
 				(path "/67885a9f-1b6d-4b79-8bed-cb7f7224bbf7"
 					(reference "C18")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_name "C_1")
-		(lib_id "Libraryv2:C_1")
-		(at 443.23 127 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "54f977cd-2d0f-4e0b-af8d-138e3bf89a54")
-		(property "Reference" "C17"
-			(at 441.198 124.968 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "100u"
-			(at 442.976 129.032 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder"
-			(at 444.1952 130.81 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 443.23 127 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Unpolarized capacitor"
-			(at 443.23 127 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "79bc3c33-bfc6-40e1-a2dc-2b64df45a2e2")
-		)
-		(pin "2"
-			(uuid "a21fea39-15c1-411c-bad4-6070d9025723")
-		)
-		(instances
-			(project "eeg_ble_pcb_v1"
-				(path "/67885a9f-1b6d-4b79-8bed-cb7f7224bbf7"
-					(reference "C17")
 					(unit 1)
 				)
 			)
@@ -22389,15 +22319,15 @@
 	(symbol
 		(lib_name "C_1")
 		(lib_id "Libraryv2:C_1")
-		(at 427.99 127 0)
+		(at 443.23 127 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "8b97b50e-c8a4-42ff-ba52-9d83077a88a6")
-		(property "Reference" "C23"
-			(at 423.926 125.222 0)
+		(uuid "8f64c2e2-ec99-4476-b42c-c867be01b2e0")
+		(property "Reference" "C44"
+			(at 441.198 124.968 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22405,8 +22335,8 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0.1u"
-			(at 423.672 128.778 0)
+		(property "Value" "100u"
+			(at 442.976 129.032 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22415,7 +22345,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder"
-			(at 428.9552 130.81 0)
+			(at 444.1952 130.81 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22424,7 +22354,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 427.99 127 0)
+			(at 443.23 127 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22433,7 +22363,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 427.99 127 0)
+			(at 443.23 127 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22442,15 +22372,15 @@
 			)
 		)
 		(pin "1"
-			(uuid "6e785cdf-b7cd-49c6-b39c-751628034bc8")
+			(uuid "756f4c65-de9c-460c-bd5f-026f2bd786cc")
 		)
 		(pin "2"
-			(uuid "4bfb1631-7a67-4264-b249-0b4cf5da78f5")
+			(uuid "138ec316-783b-4bfb-b145-86bee2ba2f13")
 		)
 		(instances
 			(project "eeg_ble_pcb_v1"
 				(path "/67885a9f-1b6d-4b79-8bed-cb7f7224bbf7"
-					(reference "C23")
+					(reference "C44")
 					(unit 1)
 				)
 			)
@@ -22718,86 +22648,6 @@
 			(project "eeg_ble_pcb_v1"
 				(path "/67885a9f-1b6d-4b79-8bed-cb7f7224bbf7"
 					(reference "R10")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Battery_Management:DW01A")
-		(at 359.41 191.77 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "919fa4cd-ad1e-4109-ae70-1604c9c3be13")
-		(property "Reference" "U1"
-			(at 359.41 181.61 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "DW01A"
-			(at 359.41 184.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Package_TO_SOT_SMD:SOT-23-6"
-			(at 359.41 191.77 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://hmsemi.com/downfile/DW01A.PDF"
-			(at 359.41 191.77 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Overcharge, overcurrent and overdischarge protection IC for single cell lithium-ion/polymer battery"
-			(at 359.664 190.246 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "5"
-			(uuid "b52f0b7f-f592-4ec3-adc4-f46ab7d4dfea")
-		)
-		(pin "6"
-			(uuid "8cffbbf8-4b31-4ee4-8fb2-5c7ba1132a1b")
-		)
-		(pin "1"
-			(uuid "e099d1ff-bf58-4d1f-bf1e-6c078ee7bd85")
-		)
-		(pin "3"
-			(uuid "100af582-bf63-446d-8ff2-c31b444e9904")
-		)
-		(pin "2"
-			(uuid "375489b0-9a99-40fe-886f-308bc8646b5c")
-		)
-		(pin "4"
-			(uuid "b0c3b66a-4665-4baa-8fdb-689b8476f25c")
-		)
-		(instances
-			(project "eeg_ble_pcb_v1"
-				(path "/67885a9f-1b6d-4b79-8bed-cb7f7224bbf7"
-					(reference "U1")
 					(unit 1)
 				)
 			)
@@ -23223,7 +23073,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "9c82adcc-c828-4fb7-8c73-a2e0c4707bdc")
-		(property "Reference" "U"
+		(property "Reference" "U1"
 			(at 158.3533 166.37 0)
 			(effects
 				(font
@@ -23479,7 +23329,7 @@
 		(instances
 			(project ""
 				(path "/67885a9f-1b6d-4b79-8bed-cb7f7224bbf7"
-					(reference "U")
+					(reference "U1")
 					(unit 1)
 				)
 			)
@@ -24303,76 +24153,6 @@
 		)
 	)
 	(symbol
-		(lib_name "C_1")
-		(lib_id "Libraryv2:C_1")
-		(at 420.37 127 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "be715b20-3047-43ee-9478-2c788adac7d0")
-		(property "Reference" "C22"
-			(at 416.306 125.222 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "1u"
-			(at 417.576 129.032 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder"
-			(at 421.3352 130.81 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 420.37 127 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Unpolarized capacitor"
-			(at 420.37 127 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "fd30e16d-0a62-477e-acaa-8c16c91c1b66")
-		)
-		(pin "2"
-			(uuid "d7892585-0464-4c17-98af-23e62c6b0752")
-		)
-		(instances
-			(project "eeg_ble_pcb_v1"
-				(path "/67885a9f-1b6d-4b79-8bed-cb7f7224bbf7"
-					(reference "C22")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Libraryv2:GND")
 		(at 118.11 223.52 0)
 		(unit 1)
@@ -24813,6 +24593,76 @@
 		)
 	)
 	(symbol
+		(lib_name "C_1")
+		(lib_id "Libraryv2:C_1")
+		(at 420.37 127 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "c88cf217-0303-4e10-b688-464974b5b6c3")
+		(property "Reference" "C42"
+			(at 416.306 125.222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "1u"
+			(at 417.576 129.032 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder"
+			(at 421.3352 130.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 420.37 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 420.37 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "a64f48e1-4605-484d-882c-72945eb0d6ab")
+		)
+		(pin "2"
+			(uuid "f9a9385b-0a72-4ae7-a2c6-9b41753b77fe")
+		)
+		(instances
+			(project "eeg_ble_pcb_v1"
+				(path "/67885a9f-1b6d-4b79-8bed-cb7f7224bbf7"
+					(reference "C42")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Libraryv2:R")
 		(at 334.01 114.3 90)
 		(unit 1)
@@ -25220,7 +25070,7 @@
 	)
 	(symbol
 		(lib_id "power:PWR_FLAG")
-		(at 468.63 172.72 90)
+		(at 468.63 173.99 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -25229,7 +25079,7 @@
 		(fields_autoplaced yes)
 		(uuid "cd2b09ad-ecfd-4dec-8597-c297bff66c76")
 		(property "Reference" "#FLG01"
-			(at 466.725 172.72 0)
+			(at 466.725 173.99 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -25238,7 +25088,7 @@
 			)
 		)
 		(property "Value" "PWR_FLAG"
-			(at 464.82 172.7199 90)
+			(at 464.82 173.9899 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -25247,7 +25097,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 468.63 172.72 0)
+			(at 468.63 173.99 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -25256,7 +25106,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 468.63 172.72 0)
+			(at 468.63 173.99 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -25265,7 +25115,7 @@
 			)
 		)
 		(property "Description" "Special symbol for telling ERC where power comes from"
-			(at 468.63 172.72 0)
+			(at 468.63 173.99 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -26337,7 +26187,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "dd308282-dd4f-41b9-a528-f377e2c2149b")
-		(property "Reference" "Bias"
+		(property "Reference" "Bias1"
 			(at 321.31 49.022 0)
 			(effects
 				(font
@@ -26345,7 +26195,7 @@
 				)
 			)
 		)
-		(property "Value" "0"
+		(property "Value" "10"
 			(at 324.104 52.07 0)
 			(effects
 				(font
@@ -26389,7 +26239,7 @@
 		(instances
 			(project "eeg_ble_pcb_v1"
 				(path "/67885a9f-1b6d-4b79-8bed-cb7f7224bbf7"
-					(reference "Bias")
+					(reference "Bias1")
 					(unit 1)
 				)
 			)
@@ -26660,6 +26510,76 @@
 			(project "eeg_ble_pcb_v1"
 				(path "/67885a9f-1b6d-4b79-8bed-cb7f7224bbf7"
 					(reference "C22")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_name "C_1")
+		(lib_id "Libraryv2:C_1")
+		(at 427.99 127 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "e82d8267-f4bb-4b5a-86be-b9c862c504d4")
+		(property "Reference" "C43"
+			(at 423.926 125.222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "0.1u"
+			(at 423.672 128.778 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder"
+			(at 428.9552 130.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 427.99 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 427.99 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "33fe8929-9db6-4702-accb-0419126e1bd8")
+		)
+		(pin "2"
+			(uuid "25f85b45-2e32-4b2e-b46d-7f52216d6a6a")
+		)
+		(instances
+			(project "eeg_ble_pcb_v1"
+				(path "/67885a9f-1b6d-4b79-8bed-cb7f7224bbf7"
+					(reference "C43")
 					(unit 1)
 				)
 			)
@@ -27408,6 +27328,86 @@
 			(project "eeg_ble_pcb_v1"
 				(path "/67885a9f-1b6d-4b79-8bed-cb7f7224bbf7"
 					(reference "#PWR035")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Battery_Management:DW01A")
+		(at 359.41 191.77 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "f775eddf-fb7a-4a8c-8415-7b7564a19f8a")
+		(property "Reference" "U6"
+			(at 359.41 181.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "DW01A"
+			(at 359.41 184.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-23-6"
+			(at 359.41 191.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://hmsemi.com/downfile/DW01A.PDF"
+			(at 359.41 191.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Overcharge, overcurrent and overdischarge protection IC for single cell lithium-ion/polymer battery"
+			(at 359.664 190.246 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "5"
+			(uuid "1c6d7eec-a369-4b50-b185-856ddd11bfdb")
+		)
+		(pin "6"
+			(uuid "726ad16c-3c2c-4d0d-9e0f-d16f2da303fc")
+		)
+		(pin "1"
+			(uuid "8a32444b-0974-46c1-ace6-ae0dfecfd84d")
+		)
+		(pin "3"
+			(uuid "f8da54cd-78eb-4769-b6a0-19e9de4b1a6f")
+		)
+		(pin "2"
+			(uuid "2880e749-a06d-4ead-a665-3a80589730a0")
+		)
+		(pin "4"
+			(uuid "45bf0c71-854c-45eb-a6ad-0e8debea0782")
+		)
+		(instances
+			(project "eeg_ble_pcb_v1"
+				(path "/67885a9f-1b6d-4b79-8bed-cb7f7224bbf7"
+					(reference "U6")
 					(unit 1)
 				)
 			)
