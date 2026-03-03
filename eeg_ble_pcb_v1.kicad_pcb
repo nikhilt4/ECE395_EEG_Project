@@ -1026,7 +1026,7 @@
 	(footprint "395_eeg_footprint_library:IND_IHLP-1616AB_VIS"
 		(layer "F.Cu")
 		(uuid "147ecacc-d2d8-47e4-b4ab-d5765409c2e8")
-		(at 67.5034 85.4772)
+		(at 140.208 69.088)
 		(tags "IHLP1616ABER1R0M01 ")
 		(property "Reference" "L1"
 			(at 0 0 0)
@@ -1381,7 +1381,7 @@
 			)
 			(polygon
 				(pts
-					(xy 65.2047 83.369) (xy 69.8021 83.369) (xy 69.8021 84.385) (xy 65.2047 84.385)
+					(xy 137.9093 66.9798) (xy 142.5067 66.9798) (xy 142.5067 67.9958) (xy 137.9093 67.9958)
 				)
 			)
 		)
@@ -1413,7 +1413,7 @@
 			)
 			(polygon
 				(pts
-					(xy 65.2047 86.5694) (xy 69.8021 86.5694) (xy 69.8021 87.5854) (xy 65.2047 87.5854)
+					(xy 137.9093 70.1802) (xy 142.5067 70.1802) (xy 142.5067 71.1962) (xy 137.9093 71.1962)
 				)
 			)
 		)
@@ -1445,7 +1445,7 @@
 			)
 			(polygon
 				(pts
-					(xy 66.8049 84.385) (xy 68.2019 84.385) (xy 68.2019 86.5694) (xy 66.8049 86.5694)
+					(xy 139.5095 67.9958) (xy 140.9065 67.9958) (xy 140.9065 70.1802) (xy 139.5095 70.1802)
 				)
 			)
 		)
@@ -1852,7 +1852,7 @@
 	(footprint "LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder"
 		(layer "F.Cu")
 		(uuid "1cdf36cc-a6e6-4eba-a7c8-c0f9d5b47cfa")
-		(at 65.6515 77.928)
+		(at 199.136 45.212)
 		(descr "LED SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: https://docs.google.com/spreadsheets/d/1BsfQQcO9C6DZCsRaXUlFlo91Tg2WpOkGARC1WS5S8t0/edit?usp=sharing), generated with kicad-footprint-generator")
 		(tags "LED handsolder")
 		(property "Reference" "D1"
@@ -2484,13 +2484,13 @@
 	(footprint "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical"
 		(layer "F.Cu")
 		(uuid "2664028d-b86b-47d4-855a-0117cc2ed0d6")
-		(at 79.3165 64.903)
+		(at 234.17 96.492)
 		(descr "Through hole straight pin header, 1x02, 2.54mm pitch, single row")
 		(tags "Through hole pin header THT 1x02 2.54mm single row")
 		(property "Reference" "JP1"
 			(at 0 -2.38 0)
 			(layer "F.SilkS")
-			(uuid "d4c0a0bf-b437-4394-a326-f14738050054")
+			(uuid "421b4e02-99e1-4bad-8d9f-50f13d3df5b6")
 			(effects
 				(font
 					(size 1 1)
@@ -2499,9 +2499,9 @@
 			)
 		)
 		(property "Value" "0"
-			(at 0 4.92 0)
+			(at 127.9295 40.065 0)
 			(layer "F.Fab")
-			(uuid "b5709920-32e1-47a6-9e91-40a0adc80ce3")
+			(uuid "73dbba4c-ed45-401e-bdd5-a2ad4ed12a43")
 			(effects
 				(font
 					(size 1 1)
@@ -2513,7 +2513,7 @@
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "7118a4a7-36fd-4b06-946c-cd1d3f451546")
+			(uuid "f583c856-2b6f-4035-b6be-1cbd0106ba13")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2525,7 +2525,7 @@
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "2eb3e86b-fea7-4811-9d7c-d51e4c61c196")
+			(uuid "c32e5dd3-3001-42e6-a5e1-f6e1db791228")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2936,13 +2936,13 @@
 	(footprint "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical"
 		(layer "F.Cu")
 		(uuid "28da9acf-5d5a-464d-a251-c56494cbe832")
-		(at 74.7265 72.043)
+		(at 229.58 103.632)
 		(descr "Through hole straight pin header, 1x02, 2.54mm pitch, single row")
 		(tags "Through hole pin header THT 1x02 2.54mm single row")
 		(property "Reference" "JP6"
 			(at 0 -2.38 0)
 			(layer "F.SilkS")
-			(uuid "7a261627-f157-4ea0-8ca3-dce55b27ecb4")
+			(uuid "069a1312-75ff-407d-a96e-7958a15d5bf9")
 			(effects
 				(font
 					(size 1 1)
@@ -2953,7 +2953,7 @@
 		(property "Value" "0"
 			(at 0 4.92 0)
 			(layer "F.Fab")
-			(uuid "19f3c27f-6d00-4b7d-b551-a646c55849a8")
+			(uuid "2680de65-6187-466e-8946-617b3819c561")
 			(effects
 				(font
 					(size 1 1)
@@ -2965,7 +2965,7 @@
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "3b6e78e6-335e-42c8-8075-db546a26f6a8")
+			(uuid "863a1e52-d172-4448-9f76-cf81b9189ce8")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2977,7 +2977,7 @@
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "9b76398e-44a5-4bd3-8837-06a122d0617e")
+			(uuid "5f5d0c1b-a223-4468-87f6-bf7b2dd2d7d3")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3189,7 +3189,7 @@
 	(footprint "Connector_PinSocket_2.54mm:PinSocket_1x10_P2.54mm_Vertical"
 		(layer "F.Cu")
 		(uuid "29d62a58-4040-401b-b3b1-6d20ee89ffb9")
-		(at 65.5565 37.843)
+		(at 55.397 111.536)
 		(descr "Through hole straight socket strip, 1x10, 2.54mm pitch, single row (from Kicad 4.0.7), script generated")
 		(tags "Through hole socket strip THT 1x10 2.54mm single row")
 		(property "Reference" "J2"
@@ -3729,13 +3729,13 @@
 	(footprint "Connector_PinSocket_2.54mm:PinSocket_1x10_P2.54mm_Vertical"
 		(layer "F.Cu")
 		(uuid "2eb3fc5b-6960-4281-92b4-991b83396451")
-		(at 70.1565 37.843)
+		(at 55.372 144.272)
 		(descr "Through hole straight socket strip, 1x10, 2.54mm pitch, single row (from Kicad 4.0.7), script generated")
 		(tags "Through hole socket strip THT 1x10 2.54mm single row")
 		(property "Reference" "J3"
 			(at 0 -2.77 0)
 			(layer "F.SilkS")
-			(uuid "8cfb1464-5796-4900-ae9c-164422112afd")
+			(uuid "27ba65fd-84e2-4181-a843-acb975f53b5f")
 			(effects
 				(font
 					(size 1 1)
@@ -3746,7 +3746,7 @@
 		(property "Value" "Conn_01x10_Socket"
 			(at 0 25.63 0)
 			(layer "F.Fab")
-			(uuid "eddd0e5f-8784-459f-a82c-c820694db346")
+			(uuid "534558d6-2fa9-4971-85f8-a5de1a7d438f")
 			(effects
 				(font
 					(size 1 1)
@@ -3758,7 +3758,7 @@
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "b560f161-6d1e-4951-98a9-e82f4b99a1fa")
+			(uuid "9a9edfe0-a175-4164-bc1b-a630a61ee032")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3770,7 +3770,7 @@
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "d27534e0-17e5-4557-a850-6b94adeb4710")
+			(uuid "9fca252e-6ec7-41e7-8992-25c743bd5135")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4269,13 +4269,13 @@
 	(footprint "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical"
 		(layer "F.Cu")
 		(uuid "3412ebbe-23c8-47d7-a5a0-34a86a8b7a76")
-		(at 79.3165 72.043)
+		(at 234.17 103.632)
 		(descr "Through hole straight pin header, 1x02, 2.54mm pitch, single row")
 		(tags "Through hole pin header THT 1x02 2.54mm single row")
 		(property "Reference" "JP7"
 			(at 0 -2.38 0)
 			(layer "F.SilkS")
-			(uuid "6b845f70-da44-4447-88d4-7d6d5560622a")
+			(uuid "1993e497-b62b-46b4-8447-3a6caeb6da80")
 			(effects
 				(font
 					(size 1 1)
@@ -4286,7 +4286,7 @@
 		(property "Value" "0"
 			(at 0 4.92 0)
 			(layer "F.Fab")
-			(uuid "8953e9bd-e18b-45bb-89e9-4d025bc6c72c")
+			(uuid "564ade59-3af4-44fd-b056-20d859c421c5")
 			(effects
 				(font
 					(size 1 1)
@@ -4298,7 +4298,7 @@
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "a8eba463-7e8f-40e1-a1cc-6599cbf88f37")
+			(uuid "10a51fe0-6e93-4c80-83c9-f632eb9c6b05")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4310,7 +4310,7 @@
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "d61f7d0c-7609-4107-b43a-c6e2c9e3fafc")
+			(uuid "056568fb-506c-47fc-88d1-294dc58d997b")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4721,13 +4721,13 @@
 	(footprint "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical"
 		(layer "F.Cu")
 		(uuid "39a26560-aaec-468c-882a-408e47c5c55a")
-		(at 83.9065 72.043)
+		(at 238.76 103.632)
 		(descr "Through hole straight pin header, 1x02, 2.54mm pitch, single row")
 		(tags "Through hole pin header THT 1x02 2.54mm single row")
 		(property "Reference" "JP8"
 			(at 0 -2.38 0)
 			(layer "F.SilkS")
-			(uuid "ce77bb0c-a3ff-4f88-a8db-4096b21b7908")
+			(uuid "4f17d119-f8a1-48f9-b96f-fbe196e22a83")
 			(effects
 				(font
 					(size 1 1)
@@ -4738,7 +4738,7 @@
 		(property "Value" "0"
 			(at 0 4.92 0)
 			(layer "F.Fab")
-			(uuid "e9646aec-ace4-4c9a-9d2b-61276d660537")
+			(uuid "70a2f107-d152-4f50-bd6a-dd9f1dbd4861")
 			(effects
 				(font
 					(size 1 1)
@@ -4750,7 +4750,7 @@
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "63c31bbe-770e-42ea-a32e-b12603913db5")
+			(uuid "49d2fd20-9338-4abb-88f3-88bbd66e61a8")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4762,7 +4762,7 @@
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "415ae2be-47d9-4148-b6e8-a09449345ef7")
+			(uuid "14598077-8386-4bd2-9231-5866cdfa2919")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5770,13 +5770,13 @@
 	(footprint "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical"
 		(layer "F.Cu")
 		(uuid "43943e56-620c-433d-898d-09ee42a89816")
-		(at 88.4965 72.043)
+		(at 243.35 103.632)
 		(descr "Through hole straight pin header, 1x02, 2.54mm pitch, single row")
 		(tags "Through hole pin header THT 1x02 2.54mm single row")
 		(property "Reference" "JP10"
 			(at 0 -2.38 0)
 			(layer "F.SilkS")
-			(uuid "b920da44-b3a5-42ac-8220-b5bf4821481d")
+			(uuid "4a16b807-a525-42f5-bcfd-bf2b7f2dab49")
 			(effects
 				(font
 					(size 1 1)
@@ -5787,7 +5787,7 @@
 		(property "Value" "0"
 			(at 0 4.92 0)
 			(layer "F.Fab")
-			(uuid "631d43a2-dba6-4bf0-86e4-6233842b2af5")
+			(uuid "a921ce26-b019-4114-8b34-691fc3a2c806")
 			(effects
 				(font
 					(size 1 1)
@@ -5799,7 +5799,7 @@
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "d69c1a5f-01f2-479b-ab1d-52da95850623")
+			(uuid "7bd7b98b-8777-4c2f-972a-3f536496b1cc")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5811,7 +5811,7 @@
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "fb5762b6-5781-415e-a91a-1e13332139e9")
+			(uuid "127caca2-e47c-4d36-b66a-8e0edd3d013d")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6222,7 +6222,7 @@
 	(footprint "Button_Switch_THT:SW_PUSH_6mm"
 		(layer "F.Cu")
 		(uuid "4c4c7da5-dbf7-4af2-8c6d-552eca644d93")
-		(at 85.8465 86.053)
+		(at 68.684 125.984)
 		(descr "Generic 6mm SW tactile push button")
 		(tags "tact sw push 6mm")
 		(property "Reference" "SW1"
@@ -6768,7 +6768,7 @@
 	(footprint "Package_SO:SOIC-8-1EP_3.9x4.9mm_P1.27mm_EP2.41x3.3mm_ThermalVias"
 		(layer "F.Cu")
 		(uuid "4d6f82b2-2201-4141-8a44-d489f4da398c")
-		(at 67.4565 73.183)
+		(at 215.965 59.309)
 		(descr "SOIC, 8 Pin (http://www.allegromicro.com/~/media/Files/Datasheets/A4950-Datasheet.ashx#page=8), generated with kicad-footprint-generator ipc_gullwing_generator.py")
 		(tags "SOIC SO")
 		(property "Reference" "U2"
@@ -7235,13 +7235,13 @@
 	(footprint "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical"
 		(layer "F.Cu")
 		(uuid "5126a5cc-8013-475a-91e7-24fbdd648c09")
-		(at 88.4965 79.183)
+		(at 243.35 110.772)
 		(descr "Through hole straight pin header, 1x02, 2.54mm pitch, single row")
 		(tags "Through hole pin header THT 1x02 2.54mm single row")
 		(property "Reference" "JP16"
 			(at 0 -2.38 0)
 			(layer "F.SilkS")
-			(uuid "b293f9fa-e566-40f2-80eb-3e5ccdd35cc3")
+			(uuid "e3b6acce-cbfb-4ff9-817c-36f0a700cc4d")
 			(effects
 				(font
 					(size 1 1)
@@ -7252,7 +7252,7 @@
 		(property "Value" "0"
 			(at 0 4.92 0)
 			(layer "F.Fab")
-			(uuid "246cc497-0bdd-4802-8405-4d79e340f76a")
+			(uuid "ca83a02f-be91-45e2-a00d-1f3243a18c0c")
 			(effects
 				(font
 					(size 1 1)
@@ -7264,7 +7264,7 @@
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "329a9bfa-1bdb-4b4b-a600-6250f0c46a7e")
+			(uuid "6d4aed45-c100-4994-8924-7c37ec7177ac")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7276,7 +7276,7 @@
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "ed2bdf3f-4f8e-49cb-8c69-c671b13e7414")
+			(uuid "4ab8c3ca-ed4a-459f-9e42-9d10a6e2ce7a")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7886,7 +7886,7 @@
 	(footprint "LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder"
 		(layer "F.Cu")
 		(uuid "586b2006-220e-4f80-a128-304a97c587e1")
-		(at 65.6515 80.968)
+		(at 227.584 44.704)
 		(descr "LED SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: https://docs.google.com/spreadsheets/d/1BsfQQcO9C6DZCsRaXUlFlo91Tg2WpOkGARC1WS5S8t0/edit?usp=sharing), generated with kicad-footprint-generator")
 		(tags "LED handsolder")
 		(property "Reference" "D2"
@@ -8319,13 +8319,13 @@
 	(footprint "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical"
 		(layer "F.Cu")
 		(uuid "595c9bea-3d2c-4020-b419-2a058b00bf45")
-		(at 88.4965 64.903)
+		(at 243.35 96.492)
 		(descr "Through hole straight pin header, 1x02, 2.54mm pitch, single row")
 		(tags "Through hole pin header THT 1x02 2.54mm single row")
 		(property "Reference" "JP3"
 			(at 0 -2.38 0)
 			(layer "F.SilkS")
-			(uuid "7a8d32f9-b014-4720-8530-10f5075e2f70")
+			(uuid "cfee0987-4c3e-46fd-a02c-43c7cb1582b8")
 			(effects
 				(font
 					(size 1 1)
@@ -8334,9 +8334,9 @@
 			)
 		)
 		(property "Value" "0"
-			(at 0 4.92 0)
+			(at 127.9295 40.065 0)
 			(layer "F.Fab")
-			(uuid "74f28f10-f461-4f38-a720-aa8e25799cd3")
+			(uuid "163d51c1-7079-4857-b84a-da7882369c86")
 			(effects
 				(font
 					(size 1 1)
@@ -8348,7 +8348,7 @@
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "c9ab9003-d0d3-417a-8959-28de33757663")
+			(uuid "e3c54d45-5462-42db-a68c-932fb241660c")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8360,7 +8360,7 @@
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "25b97b45-735b-48d6-82ac-4ce6b131a75e")
+			(uuid "e3fedded-a19f-4460-b99d-40558cde604c")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8572,7 +8572,7 @@
 	(footprint "395_eeg_footprint_library:QFP50P1200X1200X120-64N"
 		(layer "F.Cu")
 		(uuid "5f5d858b-ceab-46ac-8d33-1cc72dbdc26b")
-		(at 108.1115 69.843)
+		(at 216.316 131.862)
 		(property "Reference" "U3"
 			(at -3.985 -7.845 0)
 			(layer "F.SilkS")
@@ -9618,13 +9618,13 @@
 	(footprint "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical"
 		(layer "F.Cu")
 		(uuid "63d58628-e76f-49f4-bcbe-33352f802385")
-		(at 74.7265 64.903)
+		(at 229.58 96.492)
 		(descr "Through hole straight pin header, 1x02, 2.54mm pitch, single row")
 		(tags "Through hole pin header THT 1x02 2.54mm single row")
 		(property "Reference" "Bias1"
 			(at 0 -2.38 0)
 			(layer "F.SilkS")
-			(uuid "977ffdc7-4be6-4fa0-b64f-e1e474616b1f")
+			(uuid "32818757-beeb-47c0-9baf-c7997bd48654")
 			(effects
 				(font
 					(size 1 1)
@@ -9633,9 +9633,9 @@
 			)
 		)
 		(property "Value" "10"
-			(at 0 4.92 0)
+			(at 127.9295 40.065 0)
 			(layer "F.Fab")
-			(uuid "7126476e-e1bc-43bb-b060-620266fc92f2")
+			(uuid "dfa72557-53e1-4198-8366-259e1cf52ba9")
 			(effects
 				(font
 					(size 1 1)
@@ -9647,7 +9647,7 @@
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "ce3a41c4-1309-4d62-a57d-343b3ecfd6c9")
+			(uuid "2980991b-314c-486b-a582-7a2a62dc7384")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9659,7 +9659,7 @@
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "fd6be6cb-3362-451f-87d9-222971e86d83")
+			(uuid "cc7564da-6180-4b53-8435-c30d1380154c")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9871,7 +9871,7 @@
 	(footprint "Package_TO_SOT_SMD:SOT-23-6"
 		(layer "F.Cu")
 		(uuid "6669c104-9b4d-4f1e-9ea6-c6a9f3299c8d")
-		(at 112.1465 89.728)
+		(at 153.924 59.944)
 		(descr "SOT, 6 Pin (JEDEC MO-178 Var AB https://www.jedec.org/document_search?search_api_views_fulltext=MO-178), generated with kicad-footprint-generator ipc_gullwing_generator.py")
 		(tags "SOT TO_SOT_SMD")
 		(property "Reference" "U6"
@@ -10395,13 +10395,13 @@
 	(footprint "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical"
 		(layer "F.Cu")
 		(uuid "68fefe84-3633-4469-99e1-6eae6f60cda3")
-		(at 97.6765 64.903)
+		(at 253.492 94.737)
 		(descr "Through hole straight pin header, 1x02, 2.54mm pitch, single row")
 		(tags "Through hole pin header THT 1x02 2.54mm single row")
 		(property "Reference" "JP5"
 			(at 0 -2.38 0)
 			(layer "F.SilkS")
-			(uuid "b23ca08f-f556-4ab7-a289-96c3c2603c34")
+			(uuid "07aae64b-3cc5-4e55-be1f-823bcd7ff8bc")
 			(effects
 				(font
 					(size 1 1)
@@ -10410,9 +10410,9 @@
 			)
 		)
 		(property "Value" "0"
-			(at 0 4.92 0)
+			(at 2.54 4.064 0)
 			(layer "F.Fab")
-			(uuid "5db77894-bfe5-4a16-a551-d4201fc2da4e")
+			(uuid "1f265e05-d8ea-48e4-86d1-22a5be688c99")
 			(effects
 				(font
 					(size 1 1)
@@ -10424,7 +10424,7 @@
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "c823662f-2774-43f4-929b-aaaae99e60fc")
+			(uuid "5faa1d3e-d6d7-494f-8b7d-576acbd9abad")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10436,7 +10436,7 @@
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "fb4cfb14-ec69-40a7-8c2d-5d9997f0a0d3")
+			(uuid "20d33084-6774-419f-8862-7876ac15eae7")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10600,7 +10600,7 @@
 			(uuid "e57526e1-8a6a-46ac-bdb7-c855dbbebf2d")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 1.27 90)
+			(at 2.54 1.275 90)
 			(layer "F.Fab")
 			(uuid "a4d6980a-1adb-4c9f-a539-59c0c2aa1a3e")
 			(effects
@@ -11842,7 +11842,7 @@
 	(footprint "Package_SON:Texas_S-PVSON-N10_ThermalVias"
 		(layer "F.Cu")
 		(uuid "76476057-1c37-49c2-b632-64f65d64f391")
-		(at 97.0465 86.703)
+		(at 161.602 67.437)
 		(descr "3x3mm Body, 0.5mm Pitch, S-PVSON-N10, DRC, http://www.ti.com/lit/ds/symlink/tps61201.pdf")
 		(tags "0.5 S-PVSON-N10 DRC")
 		(property "Reference" "U4"
@@ -13672,7 +13672,7 @@
 	(footprint "395_eeg_footprint_library:NX2016SA_NDK"
 		(layer "F.Cu")
 		(uuid "82b259fb-0f57-43c2-897b-5b0efea2e847")
-		(at 112.9883 79.2563)
+		(at 141.224 63.5)
 		(tags "NX2016SA-32MHZ-EXS00A-CS06654 ")
 		(property "Reference" "X1"
 			(at 0 0 0)
@@ -14172,13 +14172,13 @@
 	(footprint "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical"
 		(layer "F.Cu")
 		(uuid "85117920-3cc4-4487-b2cc-412446a6ebf9")
-		(at 79.3165 79.183)
+		(at 234.17 110.772)
 		(descr "Through hole straight pin header, 1x02, 2.54mm pitch, single row")
 		(tags "Through hole pin header THT 1x02 2.54mm single row")
 		(property "Reference" "JP14"
 			(at 0 -2.38 0)
 			(layer "F.SilkS")
-			(uuid "0dc8571c-cbae-4726-9485-53d5a6c5e6a8")
+			(uuid "988fbd4a-b6c6-4390-8c9a-aa752e880964")
 			(effects
 				(font
 					(size 1 1)
@@ -14189,7 +14189,7 @@
 		(property "Value" "0"
 			(at 0 4.92 0)
 			(layer "F.Fab")
-			(uuid "8b151305-e5a0-4cf6-81cc-e336bd351cac")
+			(uuid "4fe5ab07-ab49-443f-851e-a0525802b6d5")
 			(effects
 				(font
 					(size 1 1)
@@ -14201,7 +14201,7 @@
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "16e928ad-b350-43b0-989a-f61d6f0e2d48")
+			(uuid "2d2c8472-39fb-47c9-bfba-a0ec9c02c10b")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14213,7 +14213,7 @@
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "cf70810a-dc61-4a1e-b2ad-ee8f1873ec7d")
+			(uuid "aee14439-9afb-46b5-a2ab-2a5c17e7d1e9")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14425,7 +14425,7 @@
 	(footprint "395_eeg_footprint_library:2450AT42E010B_JOT"
 		(layer "F.Cu")
 		(uuid "85a61828-29c8-406e-ab55-46cb1b7c8315")
-		(at 68.875 66.4017)
+		(at 106.172 129.032)
 		(tags "2450AT42E010B001E ")
 		(property "Reference" "U7"
 			(at 0 0 0)
@@ -14440,7 +14440,7 @@
 			)
 		)
 		(property "Value" "2450AT42E010B001E"
-			(at 0 0 0)
+			(at 0 4.8006 0)
 			(unlocked yes)
 			(layer "F.Fab")
 			(uuid "6ef130b2-3501-4cd6-a115-0ea32e8f37fb")
@@ -15144,13 +15144,13 @@
 	(footprint "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical"
 		(layer "F.Cu")
 		(uuid "873a4adf-520c-4e66-a93c-ca8542ea3ed2")
-		(at 93.0865 79.183)
+		(at 247.94 110.772)
 		(descr "Through hole straight pin header, 1x02, 2.54mm pitch, single row")
 		(tags "Through hole pin header THT 1x02 2.54mm single row")
 		(property "Reference" "JP17"
 			(at 0 -2.38 0)
 			(layer "F.SilkS")
-			(uuid "98bbb1a2-619e-4377-ba64-2ee89d3d097d")
+			(uuid "00d0394e-3b63-46f6-a5ec-6e5caa53dfca")
 			(effects
 				(font
 					(size 1 1)
@@ -15161,7 +15161,7 @@
 		(property "Value" "0"
 			(at 0 4.92 0)
 			(layer "F.Fab")
-			(uuid "57ddfd3e-628a-44ec-9366-f74e0c698d90")
+			(uuid "a63be3de-738a-49c1-a320-d6f5e2c9c5c2")
 			(effects
 				(font
 					(size 1 1)
@@ -15173,7 +15173,7 @@
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "5bc68f78-eeff-419a-8858-1d86e2a8ed5e")
+			(uuid "4a937d8d-ea18-4039-8b4d-7989bbfbd6f5")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15185,7 +15185,7 @@
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "2a11f8cb-f958-4965-b590-1c183f098f90")
+			(uuid "a2f8cd02-a2bc-42f7-8f4b-4d428af8e29c")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16989,13 +16989,13 @@
 	(footprint "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical"
 		(layer "F.Cu")
 		(uuid "98ed6a02-0974-4bac-8d20-05b1af251661")
-		(at 83.9065 64.903)
+		(at 238.76 96.492)
 		(descr "Through hole straight pin header, 1x02, 2.54mm pitch, single row")
 		(tags "Through hole pin header THT 1x02 2.54mm single row")
 		(property "Reference" "JP2"
 			(at 0 -2.38 0)
 			(layer "F.SilkS")
-			(uuid "ac54e437-8d3a-4272-96c8-e4a800621e27")
+			(uuid "5633e3be-f28e-4c6c-a253-4f40a679688a")
 			(effects
 				(font
 					(size 1 1)
@@ -17004,9 +17004,9 @@
 			)
 		)
 		(property "Value" "0"
-			(at 0 4.92 0)
+			(at 127.9295 40.065 0)
 			(layer "F.Fab")
-			(uuid "39c35408-8a60-4157-9c0a-1f0f9ab16ea8")
+			(uuid "488690f3-3fe8-43a9-bd36-2f8c8531928b")
 			(effects
 				(font
 					(size 1 1)
@@ -17018,7 +17018,7 @@
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "3f1fb160-9927-4d31-84c8-7706645a1b04")
+			(uuid "95fdd976-25de-4a5e-8994-0590f1b72063")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -17030,7 +17030,7 @@
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "219315f8-62db-49dd-b155-27d8393a6d06")
+			(uuid "4579001b-60d4-4ad6-ae68-6aa7af65ec7a")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -17839,7 +17839,7 @@
 	(footprint "395_eeg_footprint_library:SOT95P280X145-6N"
 		(layer "F.Cu")
 		(uuid "9daf2812-d3ed-4dfd-ba10-f455714bbef9")
-		(at 66.3595 90.683)
+		(at 189.753 64.074)
 		(property "Reference" "Q1"
 			(at -0.205 -2.7 0)
 			(layer "F.SilkS")
@@ -17852,7 +17852,7 @@
 			)
 		)
 		(property "Value" "FS8205"
-			(at 6.653 2.573 0)
+			(at 0.1885 3.297 0)
 			(layer "F.Fab")
 			(uuid "103e8699-e547-4a41-8ee2-24831925da5e")
 			(effects
@@ -18233,13 +18233,13 @@
 	(footprint "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical"
 		(layer "F.Cu")
 		(uuid "9e63abe2-207f-4440-9bff-a72809276d31")
-		(at 93.0865 64.903)
+		(at 247.94 96.492)
 		(descr "Through hole straight pin header, 1x02, 2.54mm pitch, single row")
 		(tags "Through hole pin header THT 1x02 2.54mm single row")
 		(property "Reference" "JP4"
 			(at 0 -2.38 0)
 			(layer "F.SilkS")
-			(uuid "f8e217bc-dc66-4978-9eb4-e6bab1872be1")
+			(uuid "854a2953-5dbc-4031-9da3-7069bba671f2")
 			(effects
 				(font
 					(size 1 1)
@@ -18248,9 +18248,9 @@
 			)
 		)
 		(property "Value" "0"
-			(at 0 4.92 0)
+			(at 127.9295 40.065 0)
 			(layer "F.Fab")
-			(uuid "6a34b934-2085-46ad-95c8-e6b37614d925")
+			(uuid "d68b1aca-3ef3-49b3-ad4a-f4ec4c9d1472")
 			(effects
 				(font
 					(size 1 1)
@@ -18262,7 +18262,7 @@
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "b954492c-3a87-4a7b-aa55-46696b97dfc9")
+			(uuid "4691c3f7-d6a0-418e-ad86-079f1f9629f3")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -18274,7 +18274,7 @@
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "6867e4e5-ef64-4b77-a337-471e00ffc005")
+			(uuid "e2b3b41a-0e8e-4edf-b6ce-e947370c5881")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19083,13 +19083,13 @@
 	(footprint "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical"
 		(layer "F.Cu")
 		(uuid "aaf28712-cbc1-4496-95db-d662f54a9ea1")
-		(at 74.7265 79.183)
+		(at 229.58 110.772)
 		(descr "Through hole straight pin header, 1x02, 2.54mm pitch, single row")
 		(tags "Through hole pin header THT 1x02 2.54mm single row")
 		(property "Reference" "JP13"
 			(at 0 -2.38 0)
 			(layer "F.SilkS")
-			(uuid "02bf32f4-95db-4111-9108-f5f22e795a43")
+			(uuid "fa800d24-cfa6-4c02-878f-936ad5be1da6")
 			(effects
 				(font
 					(size 1 1)
@@ -19100,7 +19100,7 @@
 		(property "Value" "0"
 			(at 0 4.92 0)
 			(layer "F.Fab")
-			(uuid "1d968789-f7f6-4585-90a9-46d28bffc702")
+			(uuid "03ea9d9d-5e30-4947-bc72-beeaec066ef3")
 			(effects
 				(font
 					(size 1 1)
@@ -19112,7 +19112,7 @@
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "131a2600-a753-42d0-b7df-9e1ff762c11b")
+			(uuid "5f01bdc0-d42f-4ee3-9647-b10e012f9195")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19124,7 +19124,7 @@
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "f2620a94-6130-4ac0-8a99-04c6d2849a4e")
+			(uuid "e339a8c6-c543-4320-9046-b33ee0df05af")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19336,13 +19336,13 @@
 	(footprint "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical"
 		(layer "F.Cu")
 		(uuid "ae398261-66ec-45eb-9450-d72de652c110")
-		(at 83.9065 79.183)
+		(at 238.76 110.772)
 		(descr "Through hole straight pin header, 1x02, 2.54mm pitch, single row")
 		(tags "Through hole pin header THT 1x02 2.54mm single row")
 		(property "Reference" "JP15"
 			(at 0 -2.38 0)
 			(layer "F.SilkS")
-			(uuid "c40048ea-ce05-4ed8-879f-a6f2c612c377")
+			(uuid "fc0e955b-519f-443f-a0d0-217c2a590b0f")
 			(effects
 				(font
 					(size 1 1)
@@ -19353,7 +19353,7 @@
 		(property "Value" "0"
 			(at 0 4.92 0)
 			(layer "F.Fab")
-			(uuid "f8fd91b0-6cb1-4ba6-b6f1-4111cc2e5981")
+			(uuid "ee48b33c-bd92-4689-aa94-4656e9cf818a")
 			(effects
 				(font
 					(size 1 1)
@@ -19365,7 +19365,7 @@
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "dfde4247-e9a6-4156-9ac7-9666e10b7693")
+			(uuid "83fefb61-a477-4561-9631-b7453104c793")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19377,7 +19377,7 @@
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "19434423-78dd-4cdb-83a9-397bc8536aa7")
+			(uuid "828ee304-364c-435c-a79c-fd58aeb3a614")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19788,13 +19788,13 @@
 	(footprint "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical"
 		(layer "F.Cu")
 		(uuid "b4772d4b-779e-423a-b6e3-9e8bb033c13f")
-		(at 97.6765 72.043)
+		(at 252.53 103.632)
 		(descr "Through hole straight pin header, 1x02, 2.54mm pitch, single row")
 		(tags "Through hole pin header THT 1x02 2.54mm single row")
 		(property "Reference" "JP12"
 			(at 0 -2.38 0)
 			(layer "F.SilkS")
-			(uuid "24dae03a-2358-41dd-830c-a4c37d7e6af0")
+			(uuid "a745aefc-b3e3-42ad-a50e-981a3d3d8e29")
 			(effects
 				(font
 					(size 1 1)
@@ -19805,7 +19805,7 @@
 		(property "Value" "0"
 			(at 0 4.92 0)
 			(layer "F.Fab")
-			(uuid "8c9e6125-3784-4864-9722-0b8e5039cd56")
+			(uuid "15c9239a-35dc-4701-957c-740ca874cd87")
 			(effects
 				(font
 					(size 1 1)
@@ -19817,7 +19817,7 @@
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "702fc907-2ad2-4799-bdb3-1edb2a3f1081")
+			(uuid "b094b256-a00f-48f6-8efe-3e47ec1983b4")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19829,7 +19829,7 @@
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "67713625-c423-4ebf-b452-62e8e86422e2")
+			(uuid "18005387-27e5-4581-8e70-361eb8e5c500")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -20041,7 +20041,7 @@
 	(footprint "Package_DFN_QFN:QFN-68-1EP_8x8mm_P0.4mm_EP6.4x6.4mm"
 		(layer "F.Cu")
 		(uuid "b5437114-e7ca-4b3a-9604-be4076753009")
-		(at 105.0965 82.203)
+		(at 89.548 125.26)
 		(descr "QFN, 68 Pin (https://www.st.com/resource/en/datasheet/stm32h725ze.pdf), generated with kicad-footprint-generator ipc_noLead_generator.py")
 		(tags "QFN NoLead")
 		(property "Reference" "U1"
@@ -22224,7 +22224,7 @@
 	(footprint "395_eeg_footprint_library:IND_VLS3012HBX-2R2M"
 		(layer "F.Cu")
 		(uuid "bc7456ed-4ab6-48f6-a73d-86466c662344")
-		(at 102.2965 89.803)
+		(at 146.812 68.58)
 		(property "Reference" "L2"
 			(at 0.232 -2.6064 0)
 			(layer "F.SilkS")
@@ -23794,13 +23794,13 @@
 	(footprint "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical"
 		(layer "F.Cu")
 		(uuid "d7310e0f-6d0d-4def-b10b-a7e15cd7ae73")
-		(at 93.0865 72.043)
+		(at 247.94 103.632)
 		(descr "Through hole straight pin header, 1x02, 2.54mm pitch, single row")
 		(tags "Through hole pin header THT 1x02 2.54mm single row")
 		(property "Reference" "JP11"
 			(at 0 -2.38 0)
 			(layer "F.SilkS")
-			(uuid "0e28725e-20c6-485f-942e-06ee7cbdefde")
+			(uuid "c0865567-d51f-46f3-9078-0e0e5da7a2f9")
 			(effects
 				(font
 					(size 1 1)
@@ -23811,7 +23811,7 @@
 		(property "Value" "0"
 			(at 0 4.92 0)
 			(layer "F.Fab")
-			(uuid "08cc6796-166e-4a4c-b9f0-ebd2b0b26137")
+			(uuid "00215d51-3e14-4e84-a921-ffb2bf5db96d")
 			(effects
 				(font
 					(size 1 1)
@@ -23823,7 +23823,7 @@
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "ddcf1a91-ef59-41ab-8def-23b09294f7bf")
+			(uuid "d140f27e-6e86-4218-9c94-9957a33a619f")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23835,7 +23835,7 @@
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "2e6afbe1-a5c1-49cc-98a3-bb112728e7e6")
+			(uuid "777f1542-a6b6-4019-a33b-71eaf479589f")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -25440,7 +25440,7 @@
 	(footprint "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder"
 		(layer "F.Cu")
 		(uuid "e1440ced-f9c4-4364-8fc5-192dc7487dfd")
-		(at 74.8365 37.023)
+		(at 60.96 37.592)
 		(descr "Capacitor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC-7351 nominal with elongated pad for handsoldering. (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf, https://docs.google.com/spreadsheets/d/1BsfQQcO9C6DZCsRaXUlFlo91Tg2WpOkGARC1WS5S8t0/edit?usp=sharing), generated with kicad-footprint-generator")
 		(tags "capacitor handsolder")
 		(property "Reference" "C1"
@@ -25639,7 +25639,7 @@
 	(footprint "395_eeg_footprint_library:MLPF-WB55-01E3_STM"
 		(layer "F.Cu")
 		(uuid "e68c9c58-a1f5-434c-8aa7-126a374cc43a")
-		(at 111.9371 82.8082)
+		(at 91.69 137.16)
 		(tags "MLPF-WB55-01E3 ")
 		(property "Reference" "AE1"
 			(at 0 0 0)
@@ -26356,7 +26356,7 @@
 	(footprint "Package_SON:Texas_DRC0010J"
 		(layer "F.Cu")
 		(uuid "f6af459c-a04d-4cde-b9c8-a402720201dd")
-		(at 107.1015 89.803)
+		(at 170.688 56.002)
 		(descr "Texas DRC0010J, VSON10 3x3mm Body, 0.5mm Pitch,  http://www.ti.com/lit/ds/symlink/tps63000.pdf")
 		(tags "Texas VSON10 3x3mm")
 		(property "Reference" "U5"
@@ -27381,7 +27381,7 @@
 	(footprint "395_eeg_footprint_library:2171750001_MOL"
 		(layer "F.Cu")
 		(uuid "fd31c117-1f18-4d2b-9ba2-5adc9227a2fc")
-		(at 78.1278 88.6635)
+		(at 212.344 45.72)
 		(tags "2171750001 ")
 		(property "Reference" "J4"
 			(at 0 -3.0344 0)
