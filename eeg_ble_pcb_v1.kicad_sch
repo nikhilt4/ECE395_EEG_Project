@@ -8761,12 +8761,6 @@
 		(uuid "31e366dd-3c44-48b8-8426-60f5c125bc97")
 	)
 	(junction
-		(at 417.83 53.34)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "368054ca-b268-40b0-9628-ecdd56b07ee5")
-	)
-	(junction
 		(at 118.11 220.98)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -9319,6 +9313,12 @@
 		(uuid "ed3f99e7-bbe6-465a-a25c-5b2e10763958")
 	)
 	(junction
+		(at 417.83 50.8)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "ede0b2a3-a945-4d53-af1d-7f843ceaf7d5")
+	)
+	(junction
 		(at 228.6 223.52)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -9453,10 +9453,6 @@
 	(no_connect
 		(at 176.53 156.21)
 		(uuid "5edd1c00-bd7c-4e82-b790-02ff6d7d3563")
-	)
-	(no_connect
-		(at 415.29 119.38)
-		(uuid "60e5a45e-f6bf-497b-ba90-661a689b03d4")
 	)
 	(no_connect
 		(at 130.81 146.05)
@@ -10286,6 +10282,16 @@
 	)
 	(wire
 		(pts
+			(xy 420.37 50.8) (xy 417.83 50.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "27c67c5f-a676-471e-ac13-f51510a6cfa4")
+	)
+	(wire
+		(pts
 			(xy 233.68 80.01) (xy 243.84 80.01)
 		)
 		(stroke
@@ -10523,6 +10529,16 @@
 			(type default)
 		)
 		(uuid "37d59ee0-a78a-49e0-8052-46e927f30998")
+	)
+	(wire
+		(pts
+			(xy 415.29 119.38) (xy 342.9 119.38)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3990cecf-ac24-460d-97b0-7b849484cdff")
 	)
 	(wire
 		(pts
@@ -10783,6 +10799,16 @@
 			(type default)
 		)
 		(uuid "437d027c-d337-4ee9-a539-9b02c35ede46")
+	)
+	(wire
+		(pts
+			(xy 420.37 53.34) (xy 420.37 50.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "44958687-5e5a-4c37-992d-e4d78a389714")
 	)
 	(wire
 		(pts
@@ -11096,6 +11122,16 @@
 	)
 	(wire
 		(pts
+			(xy 342.9 119.38) (xy 342.9 118.11)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5574a833-fec7-4852-a4b8-c562f4007c7d")
+	)
+	(wire
+		(pts
 			(xy 401.32 76.2) (xy 401.32 77.47)
 		)
 		(stroke
@@ -11346,7 +11382,7 @@
 	)
 	(wire
 		(pts
-			(xy 405.13 121.92) (xy 410.21 121.92)
+			(xy 403.86 121.92) (xy 410.21 121.92)
 		)
 		(stroke
 			(width 0)
@@ -11553,16 +11589,6 @@
 			(type default)
 		)
 		(uuid "718f9c17-f24b-4efb-ab77-30ad1ed236f8")
-	)
-	(wire
-		(pts
-			(xy 417.83 53.34) (xy 420.37 53.34)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "725409e0-9dbc-440a-80cc-43b2d3e7489d")
 	)
 	(wire
 		(pts
@@ -14644,7 +14670,7 @@
 	)
 	(global_label "Vout_5"
 		(shape input)
-		(at 405.13 121.92 180)
+		(at 403.86 121.92 270)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -14654,7 +14680,7 @@
 		)
 		(uuid "3be097bd-fcf5-4ce2-9de8-ba6dece29995")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 395.8554 121.92 0)
+			(at 403.86 131.1946 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -18250,7 +18276,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "1u"
+		(property "Value" "100n"
 			(at 346.71 93.9799 0)
 			(effects
 				(font
@@ -20274,7 +20300,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "1u"
+		(property "Value" "100n"
 			(at 346.71 101.5999 0)
 			(effects
 				(font
@@ -20548,7 +20574,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "1u"
+		(property "Value" "100n"
 			(at 346.71 116.8399 0)
 			(effects
 				(font
@@ -22699,7 +22725,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "1u"
+		(property "Value" "100n"
 			(at 346.71 63.4999 0)
 			(effects
 				(font
@@ -23379,7 +23405,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "1u"
+		(property "Value" "100n"
 			(at 346.71 71.1199 0)
 			(effects
 				(font
@@ -24706,7 +24732,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "1u"
+		(property "Value" "100n"
 			(at 346.71 78.7399 0)
 			(effects
 				(font
@@ -24914,7 +24940,7 @@
 			)
 		)
 		(property "Value" "0.1u"
-			(at 441.452 48.006 90)
+			(at 437.896 46.99 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -25263,7 +25289,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "1u"
+		(property "Value" "100n"
 			(at 346.71 109.2199 0)
 			(effects
 				(font
@@ -25543,7 +25569,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "1n"
+		(property "Value" "1.5n"
 			(at 345.44 46.9899 0)
 			(effects
 				(font
@@ -26085,7 +26111,7 @@
 			)
 		)
 		(property "Value" "1u"
-			(at 440.436 43.434 90)
+			(at 443.23 41.402 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -26700,7 +26726,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "1u"
+		(property "Value" "100n"
 			(at 346.71 86.3599 0)
 			(effects
 				(font
