@@ -1,0 +1,11 @@
+"Id";"Designator";"Footprint";"Quantity";"Designation";"Supplier and ref";
+1;"C22,C42,C35,C20,C28,C30,C19,C29,C45,C27,C26,C21,C18";"C_0805_2012Metric_Pad1.18x1.45mm_HandSolder";13;"1u";;;
+2;"R20,R19,R18,R13,R12,R16,R1,R14,R11,R24,R22,R10,R17,R21,R23,R29,R15";"R_0805_2012Metric_Pad1.20x1.40mm_HandSolder";17;"3.3k";;;
+3;"R9";"R_0805_2012Metric_Pad1.20x1.40mm_HandSolder";1;"1M";;;
+4;"R28,R26,R25,R27";"R_0805_2012Metric_Pad1.20x1.40mm_HandSolder";4;"100";;;
+5;"C17";"C_0805_2012Metric_Pad1.18x1.45mm_HandSolder";1;"1.5n";;;
+6;"C25";"C_0805_2012Metric_Pad1.18x1.45mm_HandSolder";1;"10u";;;
+7;"C43,C23,C34,C24";"C_0805_2012Metric_Pad1.18x1.45mm_HandSolder";4;"0.1u";;;
+8;"J1";"PinHeader_1x10_P2.54mm_Vertical";1;"Conn_01x10_Pin";;;
+9;"C44";"C_0805_2012Metric_Pad1.18x1.45mm_HandSolder";1;"100u";;;
+10;"U3";"QFP50P1200X1200X120-64N";1;"ADS1299-4PAGR";;;
