@@ -9315,7 +9315,7 @@
 			)
 		)
 		(property "Value" "0.1u"
-			(at 178.562 58.166 90)
+			(at 181.864 59.182 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10064,7 +10064,7 @@
 			)
 		)
 		(property "Value" "1u"
-			(at 177.546 53.594 90)
+			(at 180.34 54.102 90)
 			(effects
 				(font
 					(size 1.27 1.27)
