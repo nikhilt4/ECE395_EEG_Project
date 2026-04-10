@@ -49,7 +49,7 @@ DMA_HandleTypeDef hdma_lpuart1_tx;
 SPI_HandleTypeDef hspi1;
 
 /* USER CODE BEGIN PV */
-#define ADS_NUM_CHANNELS   8
+#define ADS_NUM_CHANNELS   4
 #define ADS_FRAME_BYTES    (3 + 3 * ADS_NUM_CHANNELS)
 
 /* ADS1299 commands */
@@ -267,17 +267,16 @@ static void ADS_PrintRegisters(void)
     uint8_t ch2  = ADS_ReadReg(ADS_REG_CH2SET);
     uint8_t ch3  = ADS_ReadReg(ADS_REG_CH3SET);
     uint8_t ch4  = ADS_ReadReg(ADS_REG_CH4SET);
-    uint8_t ch5  = ADS_ReadReg(ADS_REG_CH5SET);
-    uint8_t ch6  = ADS_ReadReg(ADS_REG_CH6SET);
-    uint8_t ch7  = ADS_ReadReg(ADS_REG_CH7SET);
-    uint8_t ch8  = ADS_ReadReg(ADS_REG_CH8SET);
+//    uint8_t ch5  = ADS_ReadReg(ADS_REG_CH5SET);
+//    uint8_t ch6  = ADS_ReadReg(ADS_REG_CH6SET);
+//    uint8_t ch7  = ADS_ReadReg(ADS_REG_CH7SET);
+//    uint8_t ch8  = ADS_ReadReg(ADS_REG_CH8SET);
 
     snprintf(msg, sizeof(msg),
              "ADS REGS: ID=0x%02X C1=0x%02X C2=0x%02X C3=0x%02X M1=0x%02X "
-             "CH1=0x%02X CH2=0x%02X CH3=0x%02X CH4=0x%02X "
-             "CH5=0x%02X CH6=0x%02X CH7=0x%02X CH8=0x%02X\r\n",
+             "CH1=0x%02X CH2=0x%02X CH3=0x%02X CH4=0x%02X\r\n",
              id, c1, c2, c3, m1,
-             ch1, ch2, ch3, ch4, ch5, ch6, ch7, ch8);
+             ch1, ch2, ch3, ch4);
     uart_print(msg);
 }
 
@@ -326,16 +325,20 @@ static void ADS1299_Init(void)
        CH4 = optional spare (motor area nearby or debug electrode)
        SRB2 OFF because using SRB1 common reference
     */
-    ADS_WriteReg(ADS_REG_CH1SET, ADS_MakeChSet(ADS_CH_PD_ON,  ADS_CH_GAIN_24, ADS_CH_SRB2_OFF, ADS_CH_MUX_NORMAL));
-    ADS_WriteReg(ADS_REG_CH2SET, ADS_MakeChSet(ADS_CH_PD_ON,  ADS_CH_GAIN_24, ADS_CH_SRB2_OFF, ADS_CH_MUX_NORMAL));
-    ADS_WriteReg(ADS_REG_CH3SET, ADS_MakeChSet(ADS_CH_PD_ON,  ADS_CH_GAIN_24, ADS_CH_SRB2_OFF, ADS_CH_MUX_NORMAL));
-    ADS_WriteReg(ADS_REG_CH4SET, ADS_MakeChSet(ADS_CH_PD_ON,  ADS_CH_GAIN_24, ADS_CH_SRB2_OFF, ADS_CH_MUX_NORMAL));
+//    ADS_WriteReg(ADS_REG_CH1SET, ADS_MakeChSet(ADS_CH_PD_ON,  ADS_CH_GAIN_24, ADS_CH_SRB2_OFF, ADS_CH_MUX_NORMAL));
+//    ADS_WriteReg(ADS_REG_CH2SET, ADS_MakeChSet(ADS_CH_PD_ON,  ADS_CH_GAIN_24, ADS_CH_SRB2_OFF, ADS_CH_MUX_NORMAL));
+//    ADS_WriteReg(ADS_REG_CH3SET, ADS_MakeChSet(ADS_CH_PD_ON,  ADS_CH_GAIN_24, ADS_CH_SRB2_OFF, ADS_CH_MUX_NORMAL));
+//    ADS_WriteReg(ADS_REG_CH4SET, ADS_MakeChSet(ADS_CH_PD_ON,  ADS_CH_GAIN_24, ADS_CH_SRB2_OFF, ADS_CH_MUX_NORMAL));
+    ADS_WriteReg(ADS_REG_CH1SET, ADS_MakeChSet(ADS_CH_PD_ON,  ADS_CH_GAIN_12, ADS_CH_SRB2_OFF, ADS_CH_MUX_NORMAL));
+    ADS_WriteReg(ADS_REG_CH2SET, ADS_MakeChSet(ADS_CH_PD_ON,  ADS_CH_GAIN_12, ADS_CH_SRB2_OFF, ADS_CH_MUX_NORMAL));
+    ADS_WriteReg(ADS_REG_CH3SET, ADS_MakeChSet(ADS_CH_PD_ON,  ADS_CH_GAIN_12, ADS_CH_SRB2_OFF, ADS_CH_MUX_NORMAL));
+    ADS_WriteReg(ADS_REG_CH4SET, ADS_MakeChSet(ADS_CH_PD_ON,  ADS_CH_GAIN_12, ADS_CH_SRB2_OFF, ADS_CH_MUX_NORMAL));
 
     /* Unused channels powered down and input-shorted */
-    ADS_WriteReg(ADS_REG_CH5SET, ADS_MakeChSet(ADS_CH_PD_OFF, ADS_CH_GAIN_24, ADS_CH_SRB2_OFF, ADS_CH_MUX_SHORTED));
-    ADS_WriteReg(ADS_REG_CH6SET, ADS_MakeChSet(ADS_CH_PD_OFF, ADS_CH_GAIN_24, ADS_CH_SRB2_OFF, ADS_CH_MUX_SHORTED));
-    ADS_WriteReg(ADS_REG_CH7SET, ADS_MakeChSet(ADS_CH_PD_OFF, ADS_CH_GAIN_24, ADS_CH_SRB2_OFF, ADS_CH_MUX_SHORTED));
-    ADS_WriteReg(ADS_REG_CH8SET, ADS_MakeChSet(ADS_CH_PD_OFF, ADS_CH_GAIN_24, ADS_CH_SRB2_OFF, ADS_CH_MUX_SHORTED));
+//    ADS_WriteReg(ADS_REG_CH5SET, ADS_MakeChSet(ADS_CH_PD_OFF, ADS_CH_GAIN_24, ADS_CH_SRB2_OFF, ADS_CH_MUX_SHORTED));
+//    ADS_WriteReg(ADS_REG_CH6SET, ADS_MakeChSet(ADS_CH_PD_OFF, ADS_CH_GAIN_24, ADS_CH_SRB2_OFF, ADS_CH_MUX_SHORTED));
+//    ADS_WriteReg(ADS_REG_CH7SET, ADS_MakeChSet(ADS_CH_PD_OFF, ADS_CH_GAIN_24, ADS_CH_SRB2_OFF, ADS_CH_MUX_SHORTED));
+//    ADS_WriteReg(ADS_REG_CH8SET, ADS_MakeChSet(ADS_CH_PD_OFF, ADS_CH_GAIN_24, ADS_CH_SRB2_OFF, ADS_CH_MUX_SHORTED));
 
     ADS_PrintRegisters();
 
@@ -431,8 +434,18 @@ static void ProcessHostCommand(const char *line)
 	    }
 
 	    g_frame_count = 0;
+	    drdy_count = 0;
 	    stream_enabled = 1;
 	    STM_SendInfo("RUN_START");
+
+	    //Temporary DRDY check
+//	    HAL_Delay(100);
+//		stream_enabled = 0;
+//		char dbg[48];
+//		snprintf(dbg, sizeof(dbg), "DRDY_100MS=%lu", (unsigned long)drdy_count);
+//		STM_SendInfo(dbg);
+//		stream_enabled = 1;
+
 	    return;
 	}
 
