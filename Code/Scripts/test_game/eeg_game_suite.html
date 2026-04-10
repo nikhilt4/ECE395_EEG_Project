@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>EEG Game Suite — 2-Class MI</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #111; color: #eee; font-family: sans-serif;
+         display: flex; flex-direction: column; align-items: center;
+         padding: 16px; gap: 10px; }
+  h2 { font-size: 16px; font-weight: 500; color: #aaa; letter-spacing: 1px; }
+  #tabs { display: flex; gap: 8px; }
+  .tab { padding: 7px 20px; border: 1px solid #444; border-radius: 6px;
+         font-size: 13px; cursor: pointer; background: #1a1a1a; color: #ccc; }
+  .tab.active { background: #2a2a3a; color: #fff; border-color: #666; font-weight: 500; }
+  #score-bar { font-size: 13px; color: #888; }
+  #score-bar span { color: #fff; font-weight: 500; }
+  canvas { display: block; border: 1px solid #333; border-radius: 4px; }
+  #hint { font-size: 11px; color: #555; text-align: center; }
+  #eeg-info { font-size: 11px; color: #3a7acc; text-align: center; }
+
+  /* ---- EEG control panel ---- */
+  #eeg-panel {
+    border: 1px solid #333; border-radius: 8px; padding: 12px 16px;
+    width: 480px; background: #141420;
+  }
+  #eeg-panel h3 { font-size: 12px; color: #555; margin-bottom: 10px; letter-spacing: 1px; text-transform: uppercase; }
+  .eeg-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+  .eeg-row label { font-size: 12px; color: #777; width: 160px; }
+  .eeg-row input[type=range] { flex: 1; }
+  .eeg-row span { font-size: 12px; color: #ccc; width: 40px; text-align: right; }
+  #eeg-signal { display: flex; gap: 6px; margin-top: 8px; }
+  .sig-bar-wrap { flex: 1; text-align: center; }
+  .sig-bar-wrap label { font-size: 11px; color: #555; display: block; margin-bottom: 4px; }
+  .sig-bar-bg { height: 12px; background: #222; border-radius: 6px; overflow: hidden; }
+  .sig-bar-fill { height: 100%; border-radius: 6px; transition: width 0.1s; }
+  #bar-l { background: #378add; width: 0%; }
+  #bar-r { background: #e24b4a; width: 0%; }
+</style>
+</head>
+<body>
+
+<h2>EEG GAME SUITE — 2-Class MI</h2>
+
+<div id="tabs">
+  <button class="tab active" onclick="switchGame('dodge',this)">Lane Dodge</button>
+  <button class="tab" onclick="switchGame('pong',this)">Pong</button>
+  <button class="tab" onclick="switchGame('tug',this)">Tug of War</button>
+</div>
+
+<div id="score-bar">Score: <span id="score-val">0</span> &nbsp;|&nbsp; Best: <span id="hi-val">0</span></div>
+
+<canvas id="gc" width="480" height="360"></canvas>
+
+<div id="hint"></div>
+<div id="eeg-info"></div>
+
+<!-- EEG hook config panel -->
+<div id="eeg-panel">
+  <h3>EEG / Input Config</h3>
+
+  <div class="eeg-row">
+    <label>Command hold time (ms)</label>
+    <input type="range" id="cmd-hold" min="100" max="2000" step="50" value="500"
+           oninput="cfg.cmdHold=+this.value; document.getElementById('cmd-hold-val').textContent=this.value">
+    <span id="cmd-hold-val">500</span>
+  </div>
+
+  <div class="eeg-row">
+    <label>Move cooldown (ms)</label>
+    <input type="range" id="move-cd" min="200" max="3000" step="100" value="800"
+           oninput="cfg.moveCooldown=+this.value; document.getElementById('move-cd-val').textContent=this.value">
+    <span id="move-cd-val">800</span>
+  </div>
+
+  <div class="eeg-row">
+    <label>Input mode</label>
+    <select id="input-mode" onchange="cfg.inputMode=this.value" style="flex:1;background:#1a1a1a;color:#ccc;border:1px solid #444;padding:4px 8px;border-radius:4px;font-size:13px;">
+      <option value="discrete">Discrete (single event per command)</option>
+      <option value="continuous">Continuous (hold = repeat)</option>
+    </select>
+  </div>
+
+  <div id="eeg-signal">
+    <div class="sig-bar-wrap">
+      <label>LEFT MI signal</label>
+      <div class="sig-bar-bg"><div class="sig-bar-fill" id="bar-l"></div></div>
+    </div>
+    <div class="sig-bar-wrap">
+      <label>RIGHT MI signal</label>
+      <div class="sig-bar-bg"><div class="sig-bar-fill" id="bar-r"></div></div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ============================================================
+//  CONFIG — tweak these or use the sliders above
+// ============================================================
+const cfg = {
+  cmdHold: 500,       // ms a key/EEG signal must be held before action fires
+  moveCooldown: 800,  // ms between allowed moves
+  inputMode: 'discrete', // 'discrete' | 'continuous'
+};
+
+// ============================================================
+//  EEG HOOK — call these from your classifier
+//
+//  window.eegLeft()   — fire a left command
+//  window.eegRight()  — fire a right command
+//
+//  Or for continuous classifiers, call repeatedly:
+//  window.eegSignal(leftProb, rightProb)  — e.g. eegSignal(0.8, 0.2)
+// ============================================================
+const eeg = { left: 0, right: 0, leftProb: 0, rightProb: 0 };
+
+window.eegLeft = function() {
+  eeg.left = Date.now();
+  eeg.leftProb = 1.0;
+};
+window.eegRight = function() {
+  eeg.right = Date.now();
+  eeg.rightProb = 1.0;
+};
+window.eegSignal = function(lp, rp) {
+  eeg.leftProb = lp;
+  eeg.rightProb = rp;
+  if(lp > 0.6) eeg.left = Date.now();
+  if(rp > 0.6) eeg.right = Date.now();
+};
+
+// ============================================================
+//  INPUT — merges keyboard + EEG
+// ============================================================
+const keys = {};
+document.addEventListener('keydown', e => {
+  keys[e.key] = true;
+  if(['ArrowLeft','ArrowRight','ArrowUp','ArrowDown',' '].includes(e.key)) e.preventDefault();
+});
+document.addEventListener('keyup', e => { keys[e.key] = false; });
+
+// Returns true if LEFT input is active right now
+function inputLeft() {
+  return keys['ArrowLeft'] || keys['a'] || keys['A'] ||
+         (Date.now() - eeg.left < cfg.cmdHold);
+}
+function inputRight() {
+  return keys['ArrowRight'] || keys['d'] || keys['D'] ||
+         (Date.now() - eeg.right < cfg.cmdHold);
+}
+function inputAction() { return keys[' ']; }
+
+// Update signal bars
+function updateSignalBars() {
+  const lp = inputLeft() ? Math.min(1, eeg.leftProb || 1) : (eeg.leftProb * 0.5);
+  const rp = inputRight() ? Math.min(1, eeg.rightProb || 1) : (eeg.rightProb * 0.5);
+  document.getElementById('bar-l').style.width = (lp * 100).toFixed(0) + '%';
+  document.getElementById('bar-r').style.width = (rp * 100).toFixed(0) + '%';
+  eeg.leftProb  = Math.max(0, eeg.leftProb  - 0.05);
+  eeg.rightProb = Math.max(0, eeg.rightProb - 0.05);
+}
+
+// ============================================================
+//  CANVAS + LOOP
+// ============================================================
+const canvas = document.getElementById('gc');
+const ctx = canvas.getContext('2d');
+const W = canvas.width, H = canvas.height;
+
+let currentGame = 'dodge';
+let score = 0;
+const highScores = { dodge: 0, pong: 0, tug: 0 };
+let gameOver = false;
+let gs = {};          // game state
+let lastTime = 0;
+
+function setScore(s) {
+  score = Math.max(0, s);
+  document.getElementById('score-val').textContent = score;
+  if(score > highScores[currentGame]) {
+    highScores[currentGame] = score;
+    document.getElementById('hi-val').textContent = score;
+  }
+}
+
+function switchGame(name, btn) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  currentGame = name;
+  document.getElementById('hi-val').textContent = highScores[name] || 0;
+  games[name].init();
+}
+
+// ============================================================
+//  GAME 1 — LANE DODGE
+//  Left/right MI moves car one lane at a time.
+//  Obstacles scroll slowly. A move cooldown enforces
+//  realistic EEG timing.
+// ============================================================
+function initDodge() {
+  document.getElementById('hint').textContent = 'Left/Right arrow (or A/D) to change lane. Space to restart after crash.';
+  document.getElementById('eeg-info').textContent = 'EEG: left MI = move left one lane | right MI = move right one lane';
+  gameOver = false;
+
+  const LANES = 5;
+  gs = {
+    lanes: LANES,
+    laneW: W / LANES,
+    playerLane: 2,
+    obstacles: [],
+    scrollSpeed: 0.8,        // px per frame — slow scroll
+    spawnInterval: 180,      // frames between obstacle waves
+    spawnTimer: 0,
+    tick: 0,
+    lastMove: 0,             // timestamp of last lane change
+  };
+  setScore(0);
+}
+
+function updateDodge(dt) {
+  if(gameOver) {
+    if(inputAction()) initDodge();
+    return;
+  }
+
+  gs.tick++;
+  setScore(Math.floor(gs.tick / 10));
+
+  // Lane change — respects moveCooldown
+  const now = Date.now();
+  if(now - gs.lastMove >= cfg.moveCooldown) {
+    if(inputLeft()  && gs.playerLane > 0)              { gs.playerLane--; gs.lastMove = now; }
+    else if(inputRight() && gs.playerLane < gs.lanes-1){ gs.playerLane++; gs.lastMove = now; }
+  }
+
+  // Spawn obstacles
+  gs.spawnTimer++;
+  if(gs.spawnTimer >= gs.spawnInterval) {
+    gs.spawnTimer = 0;
+    // leave at least 2 open lanes
+    const blocked = new Set();
+    const numObs = gs.lanes === 5 ? (Math.random() < 0.4 ? 3 : 2) : 1;
+    while(blocked.size < numObs) blocked.add(Math.floor(Math.random() * gs.lanes));
+    for(const lane of blocked) {
+      gs.obstacles.push({ lane, y: -40, w: gs.laneW - 8, h: 30 });
+    }
+    // gradually increase speed
+    gs.scrollSpeed = Math.min(2.0, 0.8 + gs.tick / 3000);
+  }
+
+  // Move obstacles
+  for(const o of gs.obstacles) o.y += gs.scrollSpeed;
+  gs.obstacles = gs.obstacles.filter(o => o.y < H + 50);
+
+  // Collision
+  const playerCX = gs.playerLane * gs.laneW + gs.laneW / 2;
+  const playerY  = H - 65;
+  for(const o of gs.obstacles) {
+    const oCX = o.lane * gs.laneW + gs.laneW / 2;
+    if(Math.abs(playerCX - oCX) < gs.laneW * 0.45 &&
+       Math.abs(playerY - (o.y + o.h / 2)) < 28) {
+      gameOver = true;
+    }
+  }
+}
+
+function drawDodge() {
+  // Background
+  ctx.fillStyle = '#14141e';
+  ctx.fillRect(0, 0, W, H);
+
+  // Road lines — slow scroll
+  const lineOffset = (gs.tick * gs.scrollSpeed) % 60;
+  ctx.strokeStyle = 'rgba(255,255,255,0.07)';
+  ctx.setLineDash([24, 36]);
+  ctx.lineWidth = 1;
+  for(let i = 1; i < gs.lanes; i++) {
+    const lx = i * gs.laneW;
+    ctx.beginPath();
+    ctx.moveTo(lx, -60 + lineOffset);
+    ctx.lineTo(lx, H + 10);
+    ctx.stroke();
+  }
+  ctx.setLineDash([]);
+
+  // Move cooldown indicator
+  const cdRatio = Math.min(1, (Date.now() - gs.lastMove) / cfg.moveCooldown);
+  ctx.fillStyle = cdRatio >= 1 ? '#2a4a2a' : '#1a1a1a';
+  ctx.fillRect(0, H - 4, W * cdRatio, 4);
+
+  // Obstacles
+  for(const o of gs.obstacles) {
+    const ox = o.lane * gs.laneW + 4;
+    ctx.fillStyle = '#8b1a1a';
+    rr(ctx, ox, o.y, o.w, o.h, 5);
+    ctx.fill();
+    ctx.fillStyle = '#e24b4a';
+    rr(ctx, ox+4, o.y+6, o.w-8, 8, 3);
+    ctx.fill();
+    ctx.fillRect(ox+4, o.y+18, o.w-8, 4);
+  }
+
+  // Player car
+  const blink = gameOver && Math.floor(gs.tick / 5) % 2 === 0;
+  if(!blink) {
+    const px = gs.playerLane * gs.laneW + 4;
+    const py = H - 80;
+    ctx.fillStyle = '#1a3a6a';
+    rr(ctx, px, py, gs.laneW - 8, 42, 6);
+    ctx.fill();
+    ctx.fillStyle = '#378add';
+    rr(ctx, px + 5, py + 6, gs.laneW - 18, 12, 3);
+    ctx.fill();
+    // wheels
+    ctx.fillStyle = '#0a0a0a';
+    ctx.fillRect(px + 1,              py + 2,  7, 10);
+    ctx.fillRect(px + gs.laneW - 16,  py + 2,  7, 10);
+    ctx.fillRect(px + 1,              py + 30, 7, 10);
+    ctx.fillRect(px + gs.laneW - 16,  py + 30, 7, 10);
+  }
+
+  // Lane labels at top
+  for(let i = 0; i < gs.lanes; i++) {
+    if(i === gs.playerLane) {
+      ctx.fillStyle = 'rgba(55,138,221,0.12)';
+      ctx.fillRect(i * gs.laneW, 0, gs.laneW, H);
+    }
+  }
+
+  // Game over overlay
+  if(gameOver) {
+    ctx.fillStyle = 'rgba(0,0,0,0.6)';
+    ctx.fillRect(0, 0, W, H);
+    ctx.fillStyle = '#fff';
+    ctx.font = 'bold 30px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('Game Over', W/2, H/2 - 18);
+    ctx.font = '15px sans-serif';
+    ctx.fillStyle = '#888';
+    ctx.fillText('Space to restart', W/2, H/2 + 14);
+    ctx.textAlign = 'left';
+  }
+
+  // Cooldown text
+  if(!gameOver && cdRatio < 1) {
+    ctx.fillStyle = '#444';
+    ctx.font = '11px monospace';
+    ctx.textAlign = 'center';
+    ctx.fillText('cooldown ' + Math.ceil((1 - cdRatio) * cfg.moveCooldown) + 'ms', W/2, H - 10);
+    ctx.textAlign = 'left';
+  }
+}
+
+// ============================================================
+//  GAME 2 — PONG / BREAKOUT
+//  Left/right MI moves paddle. Ball and AI are slow.
+// ============================================================
+function initPong() {
+  document.getElementById('hint').textContent = 'Left/Right to move paddle. Space to serve.';
+  document.getElementById('eeg-info').textContent = 'EEG: left MI = paddle left | right MI = paddle right';
+  gameOver = false;
+
+  gs = {
+    paddleX: W/2 - 50, paddleW: 100, paddleH: 12, paddleY: H - 28,
+    paddleSpeed: 4,
+    ball: { x: W/2, y: H/2, vx: 1.2, vy: -1.6, r: 9 },
+    aiX: W/2 - 50, aiW: 90, aiH: 10, aiY: 22, aiSpeed: 1.0,
+    lives: 3,
+    served: false,
+    bricks: [],
+    tick: 0,
+    lastMove: 0,
+  };
+  buildPongBricks();
+  setScore(0);
+}
+
+function buildPongBricks() {
+  gs.bricks = [];
+  const cols = 7, rows = 3;
+  const bw = (W - 40) / cols;
+  const colors = ['#7a1a1a', '#7a5a0a', '#1a3a7a'];
+  for(let r = 0; r < rows; r++)
+    for(let c = 0; c < cols; c++)
+      gs.bricks.push({ x: 20 + c * bw, y: 68 + r * 26, w: bw - 5, h: 18,
+                        alive: true, color: colors[r] });
+}
+
+function updatePong(dt) {
+  if(gameOver) { if(inputAction()) initPong(); return; }
+  gs.tick++;
+
+  // Paddle movement — continuous or discrete
+  const now = Date.now();
+  if(cfg.inputMode === 'continuous') {
+    if(inputLeft())  gs.paddleX = Math.max(0, gs.paddleX - gs.paddleSpeed);
+    if(inputRight()) gs.paddleX = Math.min(W - gs.paddleW, gs.paddleX + gs.paddleSpeed);
+  } else {
+    if(now - gs.lastMove >= cfg.moveCooldown) {
+      if(inputLeft())       { gs.paddleX = Math.max(0, gs.paddleX - 40); gs.lastMove = now; }
+      else if(inputRight()) { gs.paddleX = Math.min(W - gs.paddleW, gs.paddleX + 40); gs.lastMove = now; }
+    }
+  }
+
+  if(!gs.served) {
+    gs.ball.x = gs.paddleX + gs.paddleW / 2;
+    gs.ball.y = gs.paddleY - gs.ball.r - 2;
+    if(inputAction()) { gs.served = true; gs.ball.vx = (Math.random() - 0.5) * 2; gs.ball.vy = -1.8; }
+    return;
+  }
+
+  // AI paddle — slow, imperfect
+  const aiCX = gs.aiX + gs.aiW / 2;
+  if(gs.ball.x > aiCX + 5) gs.aiX = Math.min(W - gs.aiW, gs.aiX + gs.aiSpeed);
+  else if(gs.ball.x < aiCX - 5) gs.aiX = Math.max(0, gs.aiX - gs.aiSpeed);
+
+  gs.ball.x += gs.ball.vx;
+  gs.ball.y += gs.ball.vy;
+
+  if(gs.ball.x - gs.ball.r < 0) { gs.ball.x = gs.ball.r; gs.ball.vx *= -1; }
+  if(gs.ball.x + gs.ball.r > W) { gs.ball.x = W - gs.ball.r; gs.ball.vx *= -1; }
+  if(gs.ball.y - gs.ball.r < 0) { gs.ball.y = gs.ball.r; gs.ball.vy = Math.abs(gs.ball.vy); }
+
+  // Player paddle bounce
+  if(gs.ball.vy > 0 &&
+     gs.ball.x > gs.paddleX && gs.ball.x < gs.paddleX + gs.paddleW &&
+     gs.ball.y + gs.ball.r >= gs.paddleY && gs.ball.y < gs.paddleY + gs.paddleH) {
+    const rel = (gs.ball.x - (gs.paddleX + gs.paddleW / 2)) / (gs.paddleW / 2);
+    gs.ball.vx = rel * 3;
+    gs.ball.vy = -Math.abs(gs.ball.vy);
+    if(Math.hypot(gs.ball.vx, gs.ball.vy) < 1.5) gs.ball.vy = -1.8;
+  }
+
+  // AI paddle bounce
+  if(gs.ball.vy < 0 &&
+     gs.ball.x > gs.aiX && gs.ball.x < gs.aiX + gs.aiW &&
+     gs.ball.y - gs.ball.r <= gs.aiY + gs.aiH && gs.ball.y > gs.aiY) {
+    const rel = (gs.ball.x - (gs.aiX + gs.aiW / 2)) / (gs.aiW / 2);
+    gs.ball.vx = rel * 2.5;
+    gs.ball.vy = Math.abs(gs.ball.vy);
+  }
+
+  // Brick collision
+  for(const b of gs.bricks) {
+    if(!b.alive) continue;
+    if(gs.ball.x + gs.ball.r > b.x && gs.ball.x - gs.ball.r < b.x + b.w &&
+       gs.ball.y + gs.ball.r > b.y && gs.ball.y - gs.ball.r < b.y + b.h) {
+      b.alive = false;
+      gs.ball.vy *= -1;
+      setScore(score + 10);
+    }
+  }
+
+  if(gs.ball.y > H + 20) {
+    gs.lives--;
+    if(gs.lives <= 0) { gameOver = true; return; }
+    gs.served = false;
+  }
+
+  if(gs.bricks.every(b => !b.alive)) { buildPongBricks(); setScore(score + 50); gs.aiSpeed += 0.2; }
+}
+
+function drawPong() {
+  ctx.fillStyle = '#0c0c18';
+  ctx.fillRect(0, 0, W, H);
+
+  for(const b of gs.bricks) {
+    if(!b.alive) continue;
+    ctx.fillStyle = b.color;
+    rr(ctx, b.x, b.y, b.w, b.h, 4); ctx.fill();
+    ctx.fillStyle = 'rgba(255,255,255,0.15)';
+    rr(ctx, b.x, b.y, b.w, 5, 4); ctx.fill();
+  }
+
+  // AI paddle
+  ctx.fillStyle = '#7a1a1a';
+  rr(ctx, gs.aiX, gs.aiY, gs.aiW, gs.aiH, 4); ctx.fill();
+  ctx.fillStyle = '#e24b4a';
+  rr(ctx, gs.aiX, gs.aiY, gs.aiW, 3, 4); ctx.fill();
+
+  // Player paddle — highlight active direction
+  ctx.fillStyle = '#1a3a6a';
+  rr(ctx, gs.paddleX, gs.paddleY, gs.paddleW, gs.paddleH, 4); ctx.fill();
+  ctx.fillStyle = '#378add';
+  rr(ctx, gs.paddleX, gs.paddleY, gs.paddleW, 4, 4); ctx.fill();
+
+  // Ball
+  ctx.fillStyle = '#eee';
+  ctx.beginPath();
+  ctx.arc(gs.ball.x, gs.ball.y, gs.ball.r, 0, Math.PI * 2);
+  ctx.fill();
+
+  // Lives
+  for(let i = 0; i < gs.lives; i++) {
+    ctx.fillStyle = '#378add';
+    ctx.beginPath(); ctx.arc(16 + i * 20, H - 12, 5, 0, Math.PI * 2); ctx.fill();
+  }
+
+  // Move cooldown bar
+  if(cfg.inputMode === 'discrete') {
+    const cdR = Math.min(1, (Date.now() - gs.lastMove) / cfg.moveCooldown);
+    ctx.fillStyle = cdR >= 1 ? '#1a3a1a' : '#111';
+    ctx.fillRect(0, H - 4, W * cdR, 4);
+  }
+
+  if(!gs.served && !gameOver) {
+    ctx.fillStyle = 'rgba(255,255,255,0.5)';
+    ctx.font = '13px sans-serif'; ctx.textAlign = 'center';
+    ctx.fillText('Space to serve', W/2, H - 50);
+    ctx.textAlign = 'left';
+  }
+
+  if(gameOver) {
+    ctx.fillStyle = 'rgba(0,0,0,0.65)';
+    ctx.fillRect(0, 0, W, H);
+    ctx.fillStyle = '#fff'; ctx.font = 'bold 30px sans-serif'; ctx.textAlign = 'center';
+    ctx.fillText('Game Over', W/2, H/2 - 18);
+    ctx.font = '15px sans-serif'; ctx.fillStyle = '#888';
+    ctx.fillText('Space to restart', W/2, H/2 + 14);
+    ctx.textAlign = 'left';
+  }
+}
+
+// ============================================================
+//  GAME 3 — TUG OF WAR (calibration / neurofeedback)
+//  Best for testing raw classifier output.
+//  A target zone drifts. Player earns points for holding
+//  the marker inside it. Velocity decays slowly.
+// ============================================================
+function initTug() {
+  document.getElementById('hint').textContent = 'Hold Left or Right to push the marker toward the target zone.';
+  document.getElementById('eeg-info').textContent = 'EEG: best for testing continuous classifier probability output — call window.eegSignal(lp, rp)';
+  gameOver = false;
+
+  gs = {
+    pos: 0,          // -1 = full left, +1 = full right
+    vel: 0,
+    zone: 0,         // target zone center, range [-0.6, 0.6]
+    zoneTimer: 0,
+    zoneDuration: 200,
+    tick: 0,
+    inZoneTicks: 0,
+    history: [],     // last N positions for trail
+  };
+  setScore(0);
+}
+
+function updateTug(dt) {
+  gs.tick++;
+
+  const pushForce  = 0.006;   // slow push
+  const friction   = 0.96;    // high inertia — feels like mental fatigue
+  const centering  = 0.003;   // slight gravity back to center
+
+  if(inputLeft())  gs.vel -= pushForce;
+  if(inputRight()) gs.vel += pushForce;
+
+  gs.vel += -gs.pos * centering;
+  gs.vel *= friction;
+  gs.pos  = Math.max(-1, Math.min(1, gs.pos + gs.vel));
+
+  // Drift target zone occasionally
+  gs.zoneTimer++;
+  if(gs.zoneTimer >= gs.zoneDuration) {
+    gs.zoneTimer = 0;
+    gs.zoneDuration = 160 + Math.floor(Math.random() * 120);
+    gs.zone += (Math.random() - 0.5) * 0.5;
+    gs.zone  = Math.max(-0.55, Math.min(0.55, gs.zone));
+  }
+
+  // Score
+  if(Math.abs(gs.pos - gs.zone) < 0.14) {
+    gs.inZoneTicks++;
+    if(gs.inZoneTicks % 30 === 0) setScore(score + 1);
+  } else {
+    gs.inZoneTicks = 0;
+  }
+
+  // Position history for trail
+  gs.history.push(gs.pos);
+  if(gs.history.length > 120) gs.history.shift();
+}
+
+function drawTug() {
+  ctx.fillStyle = '#0e0e18';
+  ctx.fillRect(0, 0, W, H);
+
+  const cx = W / 2, barY = H / 2;
+  const barHalf = W * 0.38, barH = 28;
+
+  // Background track
+  ctx.fillStyle = '#1a1a2a';
+  rr(ctx, cx - barHalf, barY - barH/2, barHalf * 2, barH, barH/2); ctx.fill();
+
+  // Target zone
+  const zoneX  = cx + gs.zone * barHalf;
+  const zoneW  = barHalf * 0.26;
+  ctx.fillStyle = 'rgba(55,138,221,0.12)';
+  rr(ctx, zoneX - zoneW/2, barY - barH/2, zoneW, barH, barH/2); ctx.fill();
+  ctx.strokeStyle = '#378add';
+  ctx.lineWidth = 1;
+  rr(ctx, zoneX - zoneW/2, barY - barH/2, zoneW, barH, barH/2); ctx.stroke();
+
+  // Fill bar
+  const knobX = cx + gs.pos * barHalf;
+  if(gs.pos !== 0) {
+    ctx.fillStyle = gs.pos > 0 ? '#7a1a1a' : '#1a3a6a';
+    const fx = gs.pos > 0 ? cx : knobX;
+    rr(ctx, fx, barY - barH/2, Math.abs(gs.pos) * barHalf, barH, 3); ctx.fill();
+  }
+
+  // Knob
+  const inZone = Math.abs(gs.pos - gs.zone) < 0.14;
+  ctx.fillStyle = inZone ? '#3a9a22' : '#ccc';
+  ctx.beginPath(); ctx.arc(knobX, barY, barH * 0.75, 0, Math.PI * 2); ctx.fill();
+  if(inZone) {
+    ctx.strokeStyle = '#63c422'; ctx.lineWidth = 2;
+    ctx.beginPath(); ctx.arc(knobX, barY, barH * 0.75 + 4, 0, Math.PI * 2); ctx.stroke();
+  }
+
+  // Position history trail (minimap above bar)
+  const trailY = barY - 55, trailH = 30;
+  ctx.fillStyle = '#111122';
+  ctx.fillRect(cx - barHalf, trailY, barHalf * 2, trailH);
+  ctx.strokeStyle = '#333';
+  ctx.lineWidth = 0.5;
+  ctx.strokeRect(cx - barHalf, trailY, barHalf * 2, trailH);
+
+  if(gs.history.length > 1) {
+    ctx.strokeStyle = '#378add';
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    for(let i = 0; i < gs.history.length; i++) {
+      const hx = cx - barHalf + (i / gs.history.length) * barHalf * 2;
+      const hy = trailY + trailH/2 - (gs.history[i] * trailH * 0.45);
+      i === 0 ? ctx.moveTo(hx, hy) : ctx.lineTo(hx, hy);
+    }
+    ctx.stroke();
+  }
+
+  // Zone line on trail
+  const tzX = cx + gs.zone * barHalf;
+  ctx.strokeStyle = 'rgba(55,138,221,0.4)';
+  ctx.lineWidth = 1;
+  ctx.setLineDash([3,3]);
+  ctx.beginPath(); ctx.moveTo(tzX, trailY); ctx.lineTo(tzX, trailY + trailH); ctx.stroke();
+  ctx.setLineDash([]);
+
+  // Labels
+  ctx.font = '12px sans-serif'; ctx.textAlign = 'left';
+  ctx.fillStyle = '#378add';
+  ctx.fillText('← LEFT MI', cx - barHalf, barY - barH/2 - 10);
+  ctx.fillStyle = '#e24b4a'; ctx.textAlign = 'right';
+  ctx.fillText('RIGHT MI →', cx + barHalf, barY - barH/2 - 10);
+
+  // Signal strength bars
+  drawSigBar(cx - barHalf - 54, barY - 36, 40, 72, inputLeft() ? 0.7+Math.random()*0.3 : eeg.leftProb,  '#378add', 'L');
+  drawSigBar(cx + barHalf + 14, barY - 36, 40, 72, inputRight() ? 0.7+Math.random()*0.3 : eeg.rightProb, '#e24b4a', 'R');
+
+  // Readouts
+  ctx.font = '10px monospace'; ctx.textAlign = 'center'; ctx.fillStyle = '#333';
+  ctx.fillText('pos ' + (gs.pos >= 0 ? '+' : '') + gs.pos.toFixed(3), cx, barY + barH/2 + 30);
+  ctx.fillText('vel ' + (gs.vel >= 0 ? '+' : '') + gs.vel.toFixed(4), cx, barY + barH/2 + 44);
+  ctx.fillText('in-zone ' + gs.inZoneTicks + ' frames', cx, barY + barH/2 + 58);
+  ctx.textAlign = 'left';
+}
+
+function drawSigBar(x, y, w, h, level, color, label) {
+  ctx.fillStyle = '#1a1a2a';
+  rr(ctx, x, y, w, h, 4); ctx.fill();
+  const fh = h * Math.max(0, Math.min(1, level));
+  ctx.fillStyle = color;
+  rr(ctx, x, y + h - fh, w, fh, 4); ctx.fill();
+  ctx.fillStyle = '#444'; ctx.font = '10px sans-serif'; ctx.textAlign = 'center';
+  ctx.fillText(label, x + w/2, y + h + 12);
+  ctx.textAlign = 'left';
+}
+
+// ============================================================
+//  Shared utils
+// ============================================================
+function rr(ctx, x, y, w, h, r) {
+  if(w <= 0 || h <= 0) return;
+  r = Math.min(r, w/2, h/2);
+  ctx.beginPath();
+  ctx.moveTo(x + r, y);
+  ctx.lineTo(x + w - r, y);
+  ctx.quadraticCurveTo(x + w, y,     x + w, y + r);
+  ctx.lineTo(x + w, y + h - r);
+  ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+  ctx.lineTo(x + r, y + h);
+  ctx.quadraticCurveTo(x, y + h,     x, y + h - r);
+  ctx.lineTo(x, y + r);
+  ctx.quadraticCurveTo(x, y,         x + r, y);
+  ctx.closePath();
+}
+
+// ============================================================
+//  Main loop
+// ============================================================
+const games = {
+  dodge: { init: initDodge, update: updateDodge, draw: drawDodge },
+  pong:  { init: initPong,  update: updatePong,  draw: drawPong  },
+  tug:   { init: initTug,   update: updateTug,   draw: drawTug   },
+};
+
+function loop(ts) {
+  const dt = ts - lastTime;
+  lastTime = ts;
+  games[currentGame].update(dt);
+  games[currentGame].draw();
+  updateSignalBars();
+  requestAnimationFrame(loop);
+}
+
+initDodge();
+requestAnimationFrame(ts => { lastTime = ts; requestAnimationFrame(loop); });
+</script>
+</body>
+</html>

@@ -14,8 +14,9 @@ NUM_SAMPLES = 1000
 READS_PER_FRAME = 60
 UPDATE_MS = 50
 
-FLAT_RMS_THRESH = 2000
-NOISY_RMS_THRESH = 2000000
+# Fixed y-axis range for filtered signal — adjust if needed
+YRANGE = 100000
+
 SATURATION_THRESH = 8000000
 
 
@@ -35,39 +36,48 @@ def wait_for_stm32(ser, timeout=30.0):
 
 def butter_bandpass(lowcut, highcut, fs, order=4):
     nyq = 0.5 * fs
-    low = lowcut / nyq
-    high = highcut / nyq
-    b, a = butter(order, [low, high], btype='band')
+    b, a = butter(order, [lowcut / nyq, highcut / nyq], btype='band')
     return b, a
 
 def bandpass_filter(data, lowcut=8.0, highcut=30.0, fs=250):
-    if len(data) < 13:
-        return np.array(data, dtype=np.float64)
+    arr = np.array(data, dtype=np.float64)
+    if len(arr) < 13:
+        return arr
     b, a = butter_bandpass(lowcut, highcut, fs)
-    return lfilter(b, a, np.array(data, dtype=np.float64))
+    return lfilter(b, a, arr)
 
-
-def rms(vals):
-    if len(vals) == 0:
-        return 0.0
-    arr = np.asarray(vals, dtype=np.float64)
-    arr = arr - np.mean(arr)
-    return float(np.sqrt(np.mean(arr ** 2)))
-
-
-def channel_status(name, buf):
+def contact_quality(buf):
+    """
+    Returns a color and label based on raw signal RMS.
+    Good contact = low stable RMS (small DC drift).
+    Poor contact = very high RMS (saturating or noisy).
+    No contact = frozen constant value (std ~ 0).
+    """
     if len(buf) < 50:
-        return f"{name}: waiting"
-    arr = np.asarray(buf, dtype=np.float64)
-    r = rms(arr)
+        return "gray", "WAIT"
+    arr = np.array(list(buf), dtype=np.float64)
     peak = np.max(np.abs(arr))
+    std = np.std(arr)
+    rms_60hz = _rms_at_60hz(arr)
+
     if peak >= SATURATION_THRESH:
-        return f"{name}: SATURATING"
-    if r < FLAT_RMS_THRESH:
-        return f"{name}: TOO FLAT / poor contact?"
-    if r > NOISY_RMS_THRESH:
-        return f"{name}: VERY NOISY / motion artifact?"
-    return f"{name}: ok  rms={int(r)}"
+        return "red", "SATURATING"
+    if std < 500:
+        return "red", "FLAT — disconnected?"
+    if rms_60hz > 50000:
+        return "orange", f"NOISY (60Hz) — poor contact"
+    if std < 50000:
+        return "green", f"OK  std={int(std)}"
+    return "orange", f"MARGINAL  std={int(std)}"
+
+def _rms_at_60hz(arr, fs=250):
+    """Estimate 60Hz noise power as proxy for impedance."""
+    if len(arr) < fs:
+        return 0.0
+    nyq = fs / 2.0
+    b, a = butter(2, [58/nyq, 62/nyq], btype='band')
+    filtered = lfilter(b, a, arr)
+    return float(np.sqrt(np.mean(filtered**2)))
 
 
 ser = serial.Serial(PORT, BAUD, timeout=0.1)
@@ -75,7 +85,6 @@ ser.reset_input_buffer()
 ser.reset_output_buffer()
 
 wait_for_stm32(ser)
-
 ser.write(b"START\n")
 ser.flush()
 print("START sent. Streaming...")
@@ -85,22 +94,35 @@ c3_buf = deque(maxlen=NUM_SAMPLES)
 cz_buf = deque(maxlen=NUM_SAMPLES)
 c4_buf = deque(maxlen=NUM_SAMPLES)
 
-fig, (ax_c3, ax_cz, ax_c4) = plt.subplots(3, 1, figsize=(13, 9), sharex=True)
+fig, axes = plt.subplots(3, 1, figsize=(13, 9), sharex=True)
 fig.suptitle("Live EEG — 8-30 Hz Bandpass  |  STM32WB55 / ADS1294", fontsize=12)
 
-line_c3, = ax_c3.plot([], [], color='tab:blue')
-line_cz, = ax_cz.plot([], [], color='tab:orange')
-line_c4, = ax_c4.plot([], [], color='tab:green')
+lines = []
+channel_names = ["C3", "Cz", "C4"]
+colors = ['tab:blue', 'tab:orange', 'tab:green']
 
-for ax, label in zip([ax_c3, ax_cz, ax_c4], ["C3", "Cz", "C4"]):
+for ax, label, color in zip(axes, channel_names, colors):
+    line, = ax.plot([], [], color=color, linewidth=0.8)
+    lines.append(line)
     ax.set_ylabel(label)
-    ax.grid(True)
+    ax.set_ylim(-YRANGE, YRANGE)
+    ax.axhline(0, color='gray', linewidth=0.5, linestyle='--')
+    ax.grid(True, alpha=0.3)
 
-ax_c4.set_xlabel("Frame Count")
+axes[2].set_xlabel("Frame Count")
 
-status_text = fig.text(0.01, 0.99, "", fontsize=9, va="top", family="monospace")
+# Status boxes for each channel
+status_boxes = []
+for i, (ax, color) in enumerate(zip(axes, colors)):
+    txt = ax.text(0.01, 0.92, "waiting...", transform=ax.transAxes,
+                  fontsize=9, va='top', family='monospace',
+                  bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.7))
+    status_boxes.append(txt)
 
 plt.tight_layout(rect=[0, 0, 1, 0.97])
+
+line_c3, line_cz, line_c4 = lines
+bufs = [c3_buf, cz_buf, c4_buf]
 
 
 def update(frame):
@@ -123,9 +145,6 @@ def update(frame):
             elif parts[0] == "I":
                 print("[STM]", ",".join(parts[1:]))
 
-            elif parts[0] == "E":
-                print("[EVENT]", ",".join(parts[1:]))
-
         except ValueError:
             continue
         except Exception as e:
@@ -133,47 +152,29 @@ def update(frame):
             break
 
     if len(x_buf) == 0:
-        return line_c3, line_cz, line_c4
+        return lines
 
     n = min(len(x_buf), len(c3_buf), len(cz_buf), len(c4_buf))
     if n == 0:
-        return line_c3, line_cz, line_c4
+        return lines
 
-    # x   = list(x_buf)[-n:]
-    # c3  = bandpass_filter(list(c3_buf)[-n:])
-    # cz  = bandpass_filter(list(cz_buf)[-n:])
-    # c4  = bandpass_filter(list(c4_buf)[-n:])
-    
-    
-    x   = list(x_buf)[-n:]
-    c3  = (list(c3_buf)[-n:])
-    cz  = (list(cz_buf)[-n:])
-    c4  = (list(c4_buf)[-n:])
+    x = list(x_buf)[-n:]
 
+    for line_obj, buf, status_box in zip(lines, bufs, status_boxes):
+        filtered = bandpass_filter(list(buf)[-n:])
+        line_obj.set_data(x, filtered)
 
+        color, label = contact_quality(buf)
+        status_box.set_text(label)
+        status_box.get_bbox_patch().set_facecolor(
+            {'green': '#90EE90', 'orange': '#FFD580',
+             'red': '#FF9999', 'gray': 'wheat'}[color]
+        )
 
-    line_c3.set_data(x, c3)
-    line_cz.set_data(x, cz)
-    line_c4.set_data(x, c4)
+    for ax in axes:
+        ax.set_xlim(x[0], x[-1])
 
-    ax_c3.set_xlim(x[0], x[-1])
-
-    for ax, sig in zip([ax_c3, ax_cz, ax_c4], [c3, cz, c4]):
-        y_min = np.min(sig)
-        y_max = np.max(sig)
-        if y_min == y_max:
-            y_min -= 1
-            y_max += 1
-        margin = max(100, int(0.1 * (y_max - y_min)))
-        ax.set_ylim(y_min - margin, y_max + margin)
-
-    status_text.set_text(
-        channel_status("C3", c3_buf) + "   " +
-        channel_status("Cz", cz_buf) + "   " +
-        channel_status("C4", c4_buf)
-    )
-
-    return line_c3, line_cz, line_c4
+    return lines
 
 
 ani = FuncAnimation(fig, update, interval=UPDATE_MS, blit=False, cache_frame_data=False)

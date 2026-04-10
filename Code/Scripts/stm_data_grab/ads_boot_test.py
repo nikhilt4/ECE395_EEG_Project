@@ -4,7 +4,7 @@ import time
 PORT = "COM5"
 BAUD = 460800
 
-def wait_for_stm32(port, baud, timeout_per_attempt=5.0):
+def wait_for_stm32(port, baud, timeout_per_attempt=10.0):
     print(f"Waiting for STM32 on {port} at {baud} baud...")
 
     while True:
@@ -16,6 +16,7 @@ def wait_for_stm32(port, baud, timeout_per_attempt=5.0):
             while (time.time() - t_start) < timeout_per_attempt:
                 line = ser.readline().decode("utf-8", errors="ignore").strip()
                 if not line:
+                    
                     continue
 
                 print(f"[BOOT] {line}")
