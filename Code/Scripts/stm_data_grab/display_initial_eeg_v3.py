@@ -39,7 +39,7 @@ def butter_bandpass(lowcut, highcut, fs, order=4):
     b, a = butter(order, [lowcut / nyq, highcut / nyq], btype='band')
     return b, a
 
-def bandpass_filter(data, lowcut=8.0, highcut=30.0, fs=250):
+def bandpass_filter(data, lowcut=8, highcut=30.0, fs=250):
     arr = np.array(data, dtype=np.float64)
     if len(arr) < 13:
         return arr
