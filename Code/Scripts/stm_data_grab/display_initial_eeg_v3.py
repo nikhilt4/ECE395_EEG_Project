@@ -80,7 +80,9 @@ def _rms_at_60hz(arr, fs=250):
     return float(np.sqrt(np.mean(filtered**2)))
 
 
-ser = serial.Serial(PORT, BAUD, timeout=0.1)
+# ser = serial.Serial(PORT, BAUD, timeout=0.1)
+ser = serial.Serial(PORT, BAUD, timeout=1.0)
+ser.set_buffer_size(rx_size=65536, tx_size=65536)
 ser.reset_input_buffer()
 ser.reset_output_buffer()
 

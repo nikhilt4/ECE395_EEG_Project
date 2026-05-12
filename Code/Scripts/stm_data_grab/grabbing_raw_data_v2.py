@@ -28,10 +28,10 @@ os.makedirs(BASE_DIR, exist_ok=True)
 print(f"OK: saving to {BASE_DIR}")
 
 # Trial timing in seconds
-PREPARE_SEC = 4.0
+PREPARE_SEC = 2.0
 CUE_SEC = 1.0
 IMAGERY_SEC = 4.0
-REST_SEC = 4.0
+REST_SEC = 2.0
 
 # Event codes
 EVENT_PREPARE      = 1
@@ -50,6 +50,9 @@ reader_thread = None
 csv_lock = threading.Lock()
 
 
+latest_sample_idx = 0
+latest_timestamp_ms = 0
+
 def send_cmd(ser, cmd: str):
     ser.write((cmd + "\n").encode("utf-8"))
     ser.flush()
@@ -67,7 +70,8 @@ def beep_rest():
 
 
 def serial_reader(ser, samples_writer, events_writer, samples_f, events_f):
-    global stop_reader, expected_idx, gap_count
+    # global stop_reader, expected_idx, gap_count
+    global stop_reader, expected_idx, gap_count, latest_sample_idx, latest_timestamp_ms
 
     while not stop_reader:
         try:
@@ -86,20 +90,52 @@ def serial_reader(ser, samples_writer, events_writer, samples_f, events_f):
             #     # D,sample_idx,timestamp_ms,C3,Cz,C4,CH4
             #     samples_writer.writerow(parts[1:])
             #     samples_f.flush()
-            if parts[0] == "D" and len(parts) == 7:
+            # if parts[0] == "D" and len(parts) == 7:
+            #     sample_idx = int(parts[1])
+            #     if expected_idx > 0 and sample_idx != expected_idx:
+            #         gap_count += 1
+            #         print(f"[GAP] sample={sample_idx}, gap={sample_idx - expected_idx}, total_gaps={gap_count}")
+            #     expected_idx = sample_idx + 1
+            #     samples_writer.writerow(parts[1:])
+            #     samples_f.flush()
+
+            # elif parts[0] == "E" and len(parts) >= 6:
+            #     # E,sample_idx,timestamp_ms,trial_num,event_code,event_name
+            #     event_name = ",".join(parts[5:])  # in case event name ever has commas
+            #     events_writer.writerow([parts[1], parts[2], parts[3], parts[4], event_name])
+            #     events_f.flush()
+
+            # elif parts[0] == "I":
+            #     print("[STM]", ",".join(parts[1:]))
+
+            # else:
+            #     print("Skipping:", line)
+            
+            if parts[0] == "E" and len(parts) >= 6:
+                event_name = ",".join(parts[5:])
+                events_writer.writerow([parts[1], parts[2], parts[3], parts[4], event_name])
+                events_f.flush()
+
+            # elif parts[0] == "D" and len(parts) == 7:
+            #     sample_idx = int(parts[1])
+            #     if expected_idx > 0 and sample_idx != expected_idx:
+            #         gap_count += 1
+            #         print(f"[GAP] sample={sample_idx}, gap={sample_idx - expected_idx}, total_gaps={gap_count}")
+            #     expected_idx = sample_idx + 1
+            #     samples_writer.writerow(parts[1:])
+            #     samples_f.flush()
+            
+            elif parts[0] == "D" and len(parts) == 7:
                 sample_idx = int(parts[1])
+                timestamp_ms = int(parts[2])
+                latest_sample_idx = sample_idx
+                latest_timestamp_ms = timestamp_ms
                 if expected_idx > 0 and sample_idx != expected_idx:
                     gap_count += 1
                     print(f"[GAP] sample={sample_idx}, gap={sample_idx - expected_idx}, total_gaps={gap_count}")
                 expected_idx = sample_idx + 1
                 samples_writer.writerow(parts[1:])
                 samples_f.flush()
-
-            elif parts[0] == "E" and len(parts) >= 6:
-                # E,sample_idx,timestamp_ms,trial_num,event_code,event_name
-                event_name = ",".join(parts[5:])  # in case event name ever has commas
-                events_writer.writerow([parts[1], parts[2], parts[3], parts[4], event_name])
-                events_f.flush()
 
             elif parts[0] == "I":
                 print("[STM]", ",".join(parts[1:]))
@@ -108,8 +144,33 @@ def serial_reader(ser, samples_writer, events_writer, samples_f, events_f):
                 print("Skipping:", line)
 
 
-def do_phase(ser, trial_num, event_code, event_name, duration, display_text=None, beep_fn=None):
+# def do_phase(ser, trial_num, event_code, event_name, duration, display_text=None, beep_fn=None):
+#     send_cmd(ser, f"MARK,{trial_num},{event_code},{event_name}")
+#     time.sleep(0.05)
+#     if display_text is not None:
+#         print(f"\n=== {display_text} ===")
+#     if beep_fn is not None:
+#         beep_fn()
+#     t_end = time.time() + duration
+#     while time.time() < t_end:
+#         time.sleep(0.05)
+
+def do_phase(ser, trial_num, event_code, event_name, duration,
+             events_writer, events_f, display_text=None, beep_fn=None):
+    global latest_sample_idx, latest_timestamp_ms
+
     send_cmd(ser, f"MARK,{trial_num},{event_code},{event_name}")
+
+    with csv_lock:
+        events_writer.writerow([
+            latest_sample_idx,
+            latest_timestamp_ms,
+            trial_num,
+            event_code,
+            event_name
+        ])
+        events_f.flush()
+
     if display_text is not None:
         print(f"\n=== {display_text} ===")
     if beep_fn is not None:
@@ -122,7 +183,8 @@ def do_phase(ser, trial_num, event_code, event_name, duration, display_text=None
 def main():
     global stop_reader, reader_thread
 
-    ser = serial.Serial(PORT, BAUD, timeout=0.1)
+    ser = serial.Serial(PORT, BAUD, timeout=1.0)
+    ser.set_buffer_size(rx_size=65536, tx_size=65536)
     time.sleep(2)
     ser.reset_input_buffer()
     ser.reset_output_buffer()
@@ -134,12 +196,17 @@ def main():
         samples_writer.writerow(["sample_idx", "timestamp_ms", "C3", "Cz", "C4", "CH4"])
         events_writer.writerow(["sample_idx", "timestamp_ms", "trial_num", "event_code", "event_name"])
 
+
+        global expected_idx, gap_count
+        expected_idx = 0
+        gap_count = 0
         stop_reader = False
         reader_thread = threading.Thread(
             target=serial_reader,
             args=(ser, samples_writer, events_writer, samples_f, events_f),
             daemon=True
         )
+        
         reader_thread.start()
 
         try:
@@ -150,16 +217,34 @@ def main():
             for i, label in enumerate(trial_labels, start=1):
                 print(f"\n######## Trial {i} / {len(trial_labels)} : {label} ########")
 
-                do_phase(ser, i, EVENT_PREPARE, "PREPARE", PREPARE_SEC, beep_fn=beep_prepare)
+                # do_phase(ser, i, EVENT_PREPARE, "PREPARE", PREPARE_SEC, beep_fn=beep_prepare)
+                # do_phase(ser, i, EVENT_PREPARE, "PREPARE", PREPARE_SEC, "PREPARE", beep_fn=beep_prepare)
+
+                # if label == "LEFT":
+                #     do_phase(ser, i, EVENT_CUE_LEFT, "CUE_LEFT", CUE_SEC, "LEFT CUE", beep_fn=beep_cue)
+                #     do_phase(ser, i, EVENT_IMAGERY_LEFT, "IMAGERY_LEFT", IMAGERY_SEC, "IMAGINE LEFT HAND")
+                # else:
+                #     do_phase(ser, i, EVENT_CUE_RIGHT, "CUE_RIGHT", CUE_SEC, "RIGHT CUE", beep_fn=beep_cue)
+                #     do_phase(ser, i, EVENT_IMAGERY_RIGHT, "IMAGERY_RIGHT", IMAGERY_SEC, "IMAGINE RIGHT HAND")
+
+                # do_phase(ser, i, EVENT_REST, "REST", REST_SEC, "REST", beep_fn=beep_rest)
+                
+                do_phase(ser, i, EVENT_PREPARE, "PREPARE", PREPARE_SEC,
+                        events_writer, events_f, "PREPARE", beep_fn=beep_prepare)
 
                 if label == "LEFT":
-                    do_phase(ser, i, EVENT_CUE_LEFT, "CUE_LEFT", CUE_SEC, "LEFT CUE", beep_fn=beep_cue)
-                    do_phase(ser, i, EVENT_IMAGERY_LEFT, "IMAGERY_LEFT", IMAGERY_SEC, "IMAGINE LEFT HAND")
+                    do_phase(ser, i, EVENT_CUE_LEFT, "CUE_LEFT", CUE_SEC,
+                            events_writer, events_f, "LEFT CUE", beep_fn=beep_cue)
+                    do_phase(ser, i, EVENT_IMAGERY_LEFT, "IMAGERY_LEFT", IMAGERY_SEC,
+                            events_writer, events_f, "IMAGINE LEFT HAND")
                 else:
-                    do_phase(ser, i, EVENT_CUE_RIGHT, "CUE_RIGHT", CUE_SEC, "RIGHT CUE", beep_fn=beep_cue)
-                    do_phase(ser, i, EVENT_IMAGERY_RIGHT, "IMAGERY_RIGHT", IMAGERY_SEC, "IMAGINE RIGHT HAND")
+                    do_phase(ser, i, EVENT_CUE_RIGHT, "CUE_RIGHT", CUE_SEC,
+                            events_writer, events_f, "RIGHT CUE", beep_fn=beep_cue) 
+                    do_phase(ser, i, EVENT_IMAGERY_RIGHT, "IMAGERY_RIGHT", IMAGERY_SEC,
+                            events_writer, events_f, "IMAGINE RIGHT HAND")
 
-                do_phase(ser, i, EVENT_REST, "REST", REST_SEC, "REST", beep_fn=beep_rest)
+                do_phase(ser, i, EVENT_REST, "REST", REST_SEC,
+                        events_writer, events_f, "REST", beep_fn=beep_rest)
 
             print("\nRun complete. Sending STOP...")
             send_cmd(ser, "STOP")

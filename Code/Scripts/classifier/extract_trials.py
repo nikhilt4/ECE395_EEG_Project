@@ -6,12 +6,8 @@ import pandas as pd
 
 FS = 250  # sampling frequency
 CHANNELS = ["C3", "Cz", "C4"]
-TMIN_SEC = 0.5
-TMAX_SEC = 3.5
-
-TMIN_SAMPLES = int(TMIN_SEC * FS)
-TMAX_SAMPLES = int(TMAX_SEC * FS)
-TRIAL_LEN = TMAX_SAMPLES - TMIN_SAMPLES
+TMIN_SEC = 1.0
+TMAX_SEC = 3.0
 
 TMIN_SAMPLES = int(TMIN_SEC * FS)
 TMAX_SAMPLES = int(TMAX_SEC * FS)

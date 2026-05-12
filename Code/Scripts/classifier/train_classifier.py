@@ -78,7 +78,7 @@ def cross_validate_by_subject(X, y, meta):
         ('lda', LinearDiscriminantAnalysis(solver='lsqr', shrinkage='auto'))
     ])
 
-    cv = GroupKFold(n_splits=5)
+    cv = GroupKFold(n_splits=14)
     scores = cross_val_score(pipeline, X, y, groups=groups, cv=cv)
 
     print(f"\nCross-subject CV accuracy: {scores.mean():.3f} ± {scores.std():.3f}")
